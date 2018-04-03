@@ -2,7 +2,7 @@
 
 
 # dependencies
-!/angular/*
+
 node_modules/
 
 config/database.js
