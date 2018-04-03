@@ -51,7 +51,7 @@ router.post('/email', (req, res, next) =>{
   // setup email data with unicode symbols
   let mailOptions = {
       from: '"Happy Star Hostel" <${newclient.email}>', // sender address
-      to: 'mildzan@gmail.com', // list of receivers
+      to: 'sale.gaga@gmail.com', // list of receivers
       subject: 'Rezervacija ', // Subject line
       text: 'Hello world?', // plain text body
       html: output // html body
