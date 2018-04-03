@@ -5,6 +5,7 @@ const nodemailer = require('nodemailer');
 // const jwt = require('jsonwebtoken');
 // const config = require('../config/database');
 var Client = require('../models/client');
+const config = require('../config/database')
 
 router.post('/email', (req, res, next) =>{
     
@@ -25,15 +26,13 @@ router.post('/email', (req, res, next) =>{
       let yearend = newclient.period[1].endDate.year
           
       const output = `
-        <h3>Rezervacija</h3>
-        <ul>  
-          <li>Ime: ${newclient.firstname}</li>
-          <li>Prezime: ${newclient.lastname}</li>
-          <li>Email: ${newclient.email}</li>
-          <li>Apartman: ${newclient.room}</li>
-          <li>Dolazak: ${daystart}/${monthstart}/${yearstart}</li>
-          <li>Odlazak: ${dayend}/${monthend}/${yearend}</li>
-        </ul>
+        <h3>Rezervacija</h3> 
+          <p><strong> Apartman: </strong>${newclient.room}</p>
+          <p><strong> Dolazak: </strong>${daystart}/${monthstart}/${yearstart}</p>
+          <p><strong> Odlazak: </strong>${dayend}/${monthend}/${yearend}</p>        
+          <p><strong> Ime: </strong>${newclient.firstname}</p>
+          <p><strong> Prezime: </strong>${newclient.lastname}</p>
+          <p><strong> Email: </strong>${newclient.email}</p>
         `
     
   let transporter = nodemailer.createTransport({
@@ -41,8 +40,8 @@ router.post('/email', (req, res, next) =>{
     port: 587,
     secure: false, // true for 465, false for other ports
     auth: {
-        user: 'milanvukovic1974', // generated ethereal user
-        pass: 'mikirur1'  // generated ethereal password
+        user: config.user, // generated ethereal user
+        pass: config.pass  // generated ethereal password
     },
     tls:{
       rejectUnauthorized:false
