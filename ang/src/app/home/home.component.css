@@ -1,0 +1,83 @@
+header {
+  text-align: center;
+  background-color: #795548;
+  margin-top: 0px;
+  margin-bottom: 0;
+  padding: 10px 0;
+}
+
+footer {
+  height:30px;
+}
+.about {
+    text-align: justify;
+}
+
+#accesories i:hover{
+  background-color: #ffb300;
+}
+
+.carousel .carousel-item {
+  width:800px !important;
+  height:500px !important;
+}
+
+#room1 > img {
+    width:400px;
+}
+
+#map {
+  display:none;
+}
+
+#map iframe {
+  border-radius: 20px;
+  min-width: 300px;
+  }
+
+.btn {
+  margin-left:20px;
+  margin-top: 2px;
+}
+
+my-date-range-picker {
+  padding-top: 10px;
+  }
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  height: 100px;
+  align-items: center;  
+}
+
+.flex h4 {
+  margin-right: 20px;
+}
+
+
+@media screen and (max-width: 800px) {
+  .carousel .carousel-item {
+    width:350px !important;
+    height:200px !important;
+  }
+  .carousel {
+    height:300px;
+  }
+  h1 {margin-bottom: 0px;}
+  #map iframe {        
+    width: 100%;
+  }
+
+  .flex {
+    display: flex;
+    flex-direction: column;
+    align-items: left; 
+    height:180px; 
+  }
+
+  .btn {
+    margin-top:10px;
+    margin-left:0px;
+  }
+}  

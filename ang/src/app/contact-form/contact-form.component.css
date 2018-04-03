@@ -1,0 +1,101 @@
+.wrapper {
+    width:450px;
+    height:510px;
+    border-radius: 10px;
+    background-color: #b8988d;
+    margin:0 auto;
+    text-align: center;    
+}
+
+.wrapper input {    
+    width:200px;
+    border-radius: 6px;
+    padding-left: 10px;
+    background-color: #8d6e63;
+    margin-left: 20px;    
+}
+
+.wrapper label {
+    padding-right: 10px;
+}
+
+.wrapper h4 {
+    padding-top: 20px;
+}
+
+.wrapper button {
+    width:100px;
+    height:40px;
+    padding: 5px;
+    border-radius: 10px;    
+}
+
+.wrapper p {
+    margin-left: 20px;
+}
+
+.hint{
+    margin-bottom: 15px;
+    padding-left: 10px;
+}
+
+.form-control {
+    margin-bottom: 10px;
+}
+
+input[type=text] {
+    border-bottom: 1px solid #fff;
+}
+
+.ng-valid[required], .ng-valid.required  {
+    
+    border: 1px solid rgb(5, 248, 17);
+    border-left: 5px solid rgb(5, 248, 17);
+    padding-left: 10px;
+  }
+  
+  .ng-invalid:not(form)  {
+    border-left: 5px solid #f70905;
+    padding-left: 10px;
+  }
+
+
+  .ng-invalid button {
+    background-color:red;
+  }
+  .ng-valid button {
+    background-color:#11F805;
+  }
+
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.wrapper-inner {
+    display: flex;
+    padding-top: 10px;
+    align-items: center;
+    text-align: left;
+}
+
+.message {
+    text-align: center;
+    background-color: #795548;
+    padding-top: 48px;
+    padding-bottom: 48px;
+    padding-right: 60px;
+    padding-left: 60px;
+    border-radius: 6px;
+}
