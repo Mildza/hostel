@@ -1,37 +1,39 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Hostel</title>
-  <base href="/">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hostel</title>
+    <base href="/">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
 <body>
   <app-root></app-root>
-</body>
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-    
-<script>
-  $(document).ready(function(){      
-    
-    $('.carousel').carousel({indicators: true});
-  });
-  $(".carousel-next").click(function() {
-    $(this).closest(".carousel").carousel("next");
-  });
-  $(".carousel-previous").click(function() {
-    $(this).closest(".carousel").carousel("prev");
-  });
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
+  <script>
+
+  // const mb = document.querySelectorAll('.materialboxed');
+  // M.Materialbox.init(mb, {});
+  
+      $(document).ready(function(){
+      $('.carousel').carousel({indicators: true});
+      $('.materialboxed').materialbox();
+      });
+      $(".carousel-next").click(function() {
+      $(this).closest(".carousel").carousel("next");
+      });
+      $(".carousel-previous").click(function() {
+      $(this).closest(".carousel").carousel("prev");
+      });      
+      $('.carousel.carousel-slider').carousel({fullWidth: true});
       
-     $('.carousel.carousel-slider').carousel({fullWidth: true});
-
-
-    function mapClick(){
-     document.getElementById("map").style.display = "block";
-     }
+      
+  function mapClick(){      
+    document.getElementById("map").style.display = "block";
+  }
   </script>
+</body>
 </html>

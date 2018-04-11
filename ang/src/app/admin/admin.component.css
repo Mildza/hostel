@@ -1,0 +1,34 @@
+table, th, td {
+    border-collapse:initial;
+    border: none;
+    border-spacing: 5px;
+    
+}
+
+td, th {
+    width:14%;
+    border-radius: 11px;    
+    border: 2px solid white;    
+}
+
+
+td:last-child {
+    width:7%;
+}
+
+th { 
+    background-color:#b8988d; 
+}
+
+tr:nth-child(odd) {background: #d1ada1}
+
+flash-messages {
+    z-index: 10000;
+    position: relative;
+    text-align: center;
+    font-size:40px;
+}
+
+.btn {
+    border-radius: 7px;
+}

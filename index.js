@@ -18,24 +18,21 @@ mongoose.connection.on('error', (err) => {
 const app = express();
 
 const clients = require('./routes/clients')
+const port = process.env.PORT || 3000
 
 app.use(cors())
 
-// Static folder
-app.use('/public', express.static(path.join(__dirname, 'public')));
+// app.use('/public', express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
-// Body Parser Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use('/clients', clients)
 
-
-app.get('/', (req, res) => {
-  res.send('Hello');
-});
-
-const port = process.env.PORT || 3000
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, ('public/index.html')))
+})
 
 app.listen(port, () => {
     console.log('Its Starts' + ' on port: ' + port)

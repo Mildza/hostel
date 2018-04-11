@@ -21,5 +21,9 @@ const Schema = mongoose.Schema({
   module.exports.getAll = function(firstname, callback) {
     const query = {firstname: firstname}
     Client.find(query, callback)
-
   }
+
+  module.exports.deleteClient = function(id, callback) {
+    const query = {_id: id}  
+    Client.remove(query, callback)  
+}

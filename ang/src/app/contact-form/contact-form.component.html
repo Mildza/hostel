@@ -1,7 +1,8 @@
-<div class="message" *ngIf="submited">
+<flash-messages></flash-messages>
+<!-- <div class="message" *ngIf="submited">
   <h3>Rezervisali ste termin.</h3>
   <p>Uskoro cemo vam potvrditi rezervaciju.</p>
-</div>
+</div> -->
 
 <div class="wrapper" *ngIf="!submited">
 <form #validateForm="ngForm" (ngSubmit)="onSubmit()">

@@ -1,5 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Http } from '@angular/http';
+import {Router, ActivatedRoute} from '@angular/router'
+import {FlashMessagesService} from 'angular2-flash-messages'
 import {AuthService} from '../services/auth.service'
+
 
 @Component({
   selector: 'contact-form',
@@ -22,9 +26,14 @@ export class ContactFormComponent implements OnInit {
     period: [{},{}]
   }
  
-  constructor(private authService: AuthService) {
+  constructor(
+    private authService: AuthService,
+    private http: Http,
+    private router:Router,
+    private flashMessage: FlashMessagesService) {
     
    }
+   result: {}  
 
   ngOnInit() {
     this.submited = false
@@ -35,10 +44,9 @@ export class ContactFormComponent implements OnInit {
       room: "",
       period: null
     }   
-  }
-  
+  }  
 
-  onSubmit() {
+  public onSubmit() {
     this.submited = true
     
     this.client = {
@@ -48,11 +56,17 @@ export class ContactFormComponent implements OnInit {
       room : this.apartman,
       period: [this.schedule[0],this.schedule[1]]
     }   
-    console.log(this.client) 
-    this.authService.sendEmail(this.client).subscribe(data => {
-     console.log(data.ok)
-    })
-    
+    this.authService.addReserve(this.client).subscribe(res => {
+      console.log(res)
+      if(res.success){
+        this.flashMessage.show('Zakazan termin, potvrdicemo Vam rezervaciju', {cssClass: 'green', timeout: 3000})
+        // this.router.navigate(['/home'])
+        this.authService.getAll()
+        .subscribe(result => this.result = result)  
+      } else {
+        this.flashMessage.show('Zakazivanje nije uspelo', {cssClass: 'red', timeout: 3000})
+      }
+    })    
   }
 
 }

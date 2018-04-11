@@ -1,0 +1,32 @@
+
+<div class="container">
+<flash-messages></flash-messages>
+<h3 class="center-align">Pregled rezervacija</h3>
+  <table class="centered">
+      <thead>
+        <tr>
+            <th>Apartman</th>
+            <th>Period</th>
+            <th>Ime</th>
+            <th>Prezime</th>
+            <th>email</th>
+        </tr>
+      </thead>
+
+      <tbody >
+        <tr *ngFor="let client of result">
+          <td>{{client.room}}</td>
+          <td>{{client.period[0].beginDate.day}}/{{client.period[0].beginDate.month}}/{{client.period[0].beginDate.year}}
+            - {{client.period[1].endDate.day}}/{{client.period[1].endDate.month}}/{{client.period[1].endDate.year}}
+          </td>
+          <td>{{client.firstname}}</td>
+          <td>{{client.lastname}}</td>
+          <td>{{client.email}}</td>
+          <td><button id="delete"  class="btn btn-primary center-block red" (click)=deleteClient(client._id)>Obrisi</button></td>
+          
+        </tr>
+      </tbody>
+    </table>
+          
+
+</div>

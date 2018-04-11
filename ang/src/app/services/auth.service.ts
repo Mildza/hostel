@@ -9,10 +9,10 @@ export class AuthService {
   constructor(private http:Http) {     
   }
 
-  sendEmail(client) {
+  addReserve(client) {
     let headers = new Headers()    
     headers.append('Content-Type', 'application/json')
-    return this.http.post('http://localhost:3000/clients/email', client, {headers: headers})
+    return this.http.post('http://localhost:3000/clients/add', client, {headers: headers})
       .map(res => res.json())
   }
 
@@ -22,5 +22,13 @@ export class AuthService {
     return this.http.get('http://localhost:3000/clients/all', {headers: headers})
       .map(res => res.json())
   }
+
+  deleteClient(id) { 
+    let headers = new Headers()
+    headers.append('Content-Type', 'application/json')
+    return this.http.delete('http://localhost:3000/clients/delete/'+ id, {headers: headers})
+      .map(res => res.json())
+  }
+
 
 }

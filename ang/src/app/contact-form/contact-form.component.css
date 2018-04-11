@@ -1,3 +1,10 @@
+flash-messages {
+    z-index: 10000;
+    position: relative;
+    text-align: center;
+    font-size:40px;
+}
+
 .wrapper {
     width:450px;
     height:510px;
@@ -12,7 +19,8 @@
     border-radius: 6px;
     padding-left: 10px;
     background-color: #8d6e63;
-    margin-left: 20px;    
+    margin-left: 20px;
+    color:#fff;    
 }
 
 .wrapper label {
@@ -27,11 +35,17 @@
     width:100px;
     height:40px;
     padding: 5px;
-    border-radius: 10px;    
+    border-radius: 10px; 
+    color: #fff;
+
+}
+.wrapper button:hover {
+    cursor: pointer;       
 }
 
 .wrapper p {
     margin-left: 20px;
+    text-align: left;
 }
 
 .hint{
@@ -99,3 +113,4 @@ tr:nth-child(even) {
     padding-left: 60px;
     border-radius: 6px;
 }
+
