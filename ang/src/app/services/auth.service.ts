@@ -40,7 +40,7 @@ export class AuthService {
   }
 
   logOut(){ 
-    localStorage.removeItem('id_token')
+    localStorage.removeItem('gookie')
     localStorage.clear()          
     let headers = new Headers()     
     headers.append('Content-Type', 'application/json')
@@ -70,7 +70,7 @@ export class AuthService {
     this.email = gookie
   }
 
-  getGookie(){
+  getGookie(){'gookie'
     const cookie = localStorage.getItem('gookie')
     if(cookie) {
       return cookie

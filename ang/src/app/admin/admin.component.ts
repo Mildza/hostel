@@ -28,15 +28,15 @@ export class AdminComponent implements OnInit {
   google: [{}]
   email:String
 
+
   ngOnInit() {
     
-    const email = this.authService.getGookie()
-    console.log(email)
-    if(email){      
-      this.authService.getOne(email)
+    this.email = this.authService.getGookie()
+    if(this.email){      
+      this.authService.getOne(this.email)
       .subscribe(result => this.result = result)
       // this.flashMessage.show('We are in about component!', { cssClass: 'green', timeout: 3000 });
-      this.authService.getGoogleUser(email)
+      this.authService.getGoogleUser(this.email)
       .subscribe(google => this.google = google)
     } 
   }
@@ -52,7 +52,7 @@ export class AdminComponent implements OnInit {
         if(res.status){
           this.flashMessage.show('Obrisano', {cssClass: 'green', timeout: 3000})
           this.router.navigate(['/admin'])
-          this.authService.getAll()
+          this.authService.getOne(this.email)
           .subscribe(result => this.result = result)  
         } else {
           this.flashMessage.show('Brisanje nije uspelo', {cssClass: 'red', timeout: 3000})

@@ -14,9 +14,9 @@ router.post('/add', (req, res, next) =>{
       period: req.body.period
       })
   
-    let daystart = newclient.period[0].beginDate.day
-    let monthstart = newclient.period[0].beginDate.month
-    let yearstart = newclient.period[0].beginDate.year
+      let daystart = newclient.period[0].beginDate.day
+      let monthstart = newclient.period[0].beginDate.month
+      let yearstart = newclient.period[0].beginDate.year
     
     let dayend = newclient.period[1].endDate.day
     let monthend = newclient.period[1].endDate.month
@@ -64,46 +64,109 @@ router.post('/add', (req, res, next) =>{
           }      
         });
         res.json({success: true, msg:'Client added'});      
-    }); // console.log('Message sent: %s', info.messageId);     
+    });   
   });
 
   router.get('/all', function(req, res, next) {
     Client.find({}, function (err, client) {
       if(err){
-       console.log("greska")
         next()       
       } else {
-          console.log('jeste')
           res.json(client)          
       }     
     })    
   })
 
-
   router.get('/one/:email', function(req, res, next) {
     const email = req.params.email 
-    // console.log(email)
+    if(email=='mildzan@gmail.com'){
+      Client.find({}, function (err, client) {
+        if(err){
+          next()       
+        } else {
+            res.json(client)          
+        }     
+      }) 
+    } else {
+  
     Client.find({email: email}, function (err, client) {
       if(err){
-       console.log("greska")
         next()      
       } else {
-          console.log(client)
           res.json(client)         
       }     
-    })    
+    })  
+  }  
   })
   
-  
   router.delete('/delete/:id', function(req, res) {
-    const id = req.params.id       
-    Client.deleteClient(id, (err) => {
+    const id = req.params.id 
+    Client.find({_id: id}, function (err, client) {
       if(err){
-        res.json({success: false, msg:'Delete failed'})
         next()      
+      } else {
+
+     let firstname = client[0].firstname
+     let lastname = client[0].lastname
+     let  email  = client[0].email
+     let room = client[0].room
+     let period = client[0].period
+    
+  
+    let daystart = client[0].period[0].beginDate.day
+    let monthstart = client[0].period[0].beginDate.month
+    let yearstart = client[0].period[0].beginDate.year
+    
+    let dayend = client[0].period[1].endDate.day
+    let monthend = client[0].period[1].endDate.month
+    let yearend = client[0].period[1].endDate.year
+    
+    const output = `
+      <h3>Otkazana Rezervacija za:</h3> 
+        <p><strong> Apartman: </strong>${room}</p>
+        <p><strong> Dolazak: </strong>${daystart}/${monthstart}/${yearstart}</p>
+        <p><strong> Odlazak: </strong>${dayend}/${monthend}/${yearend}</p>        
+        <p><strong> Ime: </strong>${firstname}</p>
+        <p><strong> Prezime: </strong>${lastname}</p>
+        <p><strong> Email: </strong>${email}</p>
+      `
+    
+    let transporter2 = nodemailer.createTransport({
+      host: 'smtp.gmail.com',
+      port: 587,
+      secure: false, // true for 465, false for other ports
+      auth: {
+          user: config.user, // generated ethereal user
+          pass: config.pass  // generated ethereal password
+      },
+      tls:{
+        rejectUnauthorized:false
       }
-      res.json({success: true, msg:'Client deleted'})
-    })
+    });  
+  // setup email data with unicode symbols
+  let mailOptions2 = {
+      from: '"Happy Star Hostel" <${email}>', // sender address
+      to: 'mildzan@gmail.com', // sale.gaga@gmail.com
+      subject: 'Otkazana Rezervacija ', // Subject line
+      text: 'Hello world?', // plain text body
+      html: output // html body
+  };
+      Client.deleteClient(id, (err) => {
+          if(err){
+            res.json({success: false, msg:'Delete failed'})
+            next()      
+          }
+          transporter2.sendMail(mailOptions2, (error, info) => {
+            if (error) {
+              console.log(error);
+            }      
+          });
+          res.json({success: true, msg:'Client deleted'})
+        })
+      }     
+    }) 
+    
+   
   }) 
   
 module.exports = router

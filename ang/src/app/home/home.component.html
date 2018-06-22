@@ -1,17 +1,31 @@
-<div class="home"  >
-<div *ngIf="!google">
-<a routerLink="/login" class="login right"><i class="fas fa-sign-in-alt fa-3x"></i></a>
-</div>
-<div *ngIf="google">
-  <div *ngFor="let user of google" class="google-image">
-  <img  src="{{user.thumbnail}}" alt="">
-<a routerLink="/admin">Admin</a> 
-<a class="google-btn" (click)=logOut() href="http://localhost:3000/user/logout">LogOut</a>
-</div>
-</div>
-<header>
-  <h1 class="heading" (click)="check($event)">Happy Star Hostel</h1>
-</header>
+<div class="home" >
+
+  <header class="row">
+
+    <div class="col s2 reserve valign-wrapper">
+        <div *ngIf="google">
+          <a routerLink="/admin">Rezervacije</a>
+        </div>
+    </div>
+
+    <div class="col s8 center-align">      
+      <h1 class="heading" (click)="check($event)">Happy Star Hostel</h1>
+    </div>
+
+    <div class="col s2 login">
+      <div *ngIf="!google" class="login2" >
+        <a routerLink="/login">Login</a>
+      </div>
+      <div *ngIf="google">
+        <div *ngFor="let user of google" class="google-image">
+          <img  src="{{user.thumbnail}}" alt="">
+          <a class="google-btn" (click)=logOut() href="http://localhost:3000/user/logout">LogOut</a>
+        </div>
+      </div>
+    </div>
+
+  </header>
+
 <div class="container">
   <div class="center-align">
     <!-- <landing></landing> -->

@@ -21,26 +21,32 @@ export class ContactFormComponent implements OnInit {
   client:{
     firstname: string,
     lastname: string,
-    email: string,
+    email: any,
     room: string,
     period: [{},{}]
   }
+
+  email: String
+  google: [{
+    email: String
+  }]
  
   constructor(
     private authService: AuthService,
     private http: Http,
     private router:Router,
-    private flashMessage: FlashMessagesService) {
+    private flashMessage: FlashMessagesService) {}
     
-   }
    result: {}  
 
   ngOnInit() {
+    this.email = this.authService.getGookie()
+
     this.submited = false
     this.client = {
       firstname : "",
       lastname : "",
-      email : "",
+      email : this.email ? this.email : "",
       room: "",
       period: null
     }   

@@ -17,14 +17,15 @@ i {
 a:link {
     color: #FFF;
 }
+
 a:visited {
     color: #FFF;
 }
 a:hover {
-    color: blue;
+    color: #FFF;
 }
 a:active {
-    color: blue;
+    color: #FFF;
 }
 
 .spinner:before {
@@ -54,15 +55,14 @@ a:active {
     position: absolute;
     top: 10px;
     right: 10px;
-}
-
-.google-image img {
-    width:75px;
-    height:75px; 
+  }
+  
+  .google-image img {
+    width:60px;
+    height:60px; 
     border-radius: 10px;   
-}
-.google-image a {
+  }
+  .google-image a {
     display:block;
     text-align: center;
-    color:white; 
-}
+  }

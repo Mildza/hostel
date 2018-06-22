@@ -88,8 +88,7 @@ export class HomeComponent implements OnInit {
       $(this).closest(".carousel").carousel("prev");
       });      
       $('.carousel.carousel-slider').carousel({fullWidth: true});
-  }); // end of document ready
-
+  });
 
     this.beginDate = [{}]
     this.authService.getAll()
@@ -192,7 +191,6 @@ export class HomeComponent implements OnInit {
     this.apartman = a
     this.hidden = true    
   }
-
 
   public check(event) {
     console.log(event.altKey)
