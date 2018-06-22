@@ -8,17 +8,25 @@ import { MyDateRangePickerModule } from 'mydaterangepicker';
 import { FlashMessagesModule } from 'angular2-flash-messages'
 
 import { AuthService } from './services/auth.service'
+import { UserService } from './services/user.service'
+import { CanActivate } from '@angular/router';
+import { AuthGuard } from './guards/auth.guards';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LandingComponent } from './landing/landing.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { AdminComponent } from './admin/admin.component';
+import { LoginComponent } from './login/login.component';
 
 const appRoutes: Routes = [
-  {path: 'admin', component: AdminComponent},
+  {path: '', component: HomeComponent},
+  {path: 'admin/:id', component: AdminComponent, canActivate:[AuthGuard]},
+  {path: 'admin', component: AdminComponent, canActivate:[AuthGuard]},
+  {path: 'google/redirect', component: AdminComponent, canActivate:[AuthGuard]},  
+  {path: 'login', component: LoginComponent},  
+  {path: 'login/:id', component: LoginComponent},  
   {path: 'home', component: HomeComponent},
-  {path: '', component: HomeComponent},  
   {path: '404', component: HomeComponent},
   {path: '**',redirectTo: '/404'}   
 ]
@@ -29,7 +37,8 @@ const appRoutes: Routes = [
     HomeComponent,
     LandingComponent,
     ContactFormComponent,
-    AdminComponent
+    AdminComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +50,9 @@ const appRoutes: Routes = [
     FlashMessagesModule.forRoot()
   ],
   providers: [
-    AuthService
+    AuthService,
+    UserService,
+    AuthGuard,
   ],
   bootstrap: [AppComponent]
 })

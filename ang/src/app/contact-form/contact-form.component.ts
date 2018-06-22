@@ -40,7 +40,7 @@ export class ContactFormComponent implements OnInit {
     this.client = {
       firstname : "",
       lastname : "",
-      email : '',
+      email : "",
       room: "",
       period: null
     }   
@@ -57,12 +57,11 @@ export class ContactFormComponent implements OnInit {
       period: [this.schedule[0],this.schedule[1]]
     }   
     this.authService.addReserve(this.client).subscribe(res => {
-      console.log(res)
       if(res.success){
         this.flashMessage.show('Zakazan termin, potvrdicemo Vam rezervaciju', {cssClass: 'green', timeout: 3000})
         // this.router.navigate(['/home'])
-        this.authService.getAll()
-        .subscribe(result => this.result = result)  
+        // this.authService.getAll(this.client.email)
+        // .subscribe(result => this.result = result)  
       } else {
         this.flashMessage.show('Zakazivanje nije uspelo', {cssClass: 'red', timeout: 3000})
       }

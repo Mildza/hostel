@@ -1,6 +1,17 @@
 
 <div class="container">
 <flash-messages></flash-messages>
+<!-- <p>{{user}}</p> -->
+<!-- <img src={{user.thumbnail}} alt=""> -->
+<div *ngIf="google" class="google">
+  <div *ngFor="let user of google" class="google-image">
+    <img  src="{{user.thumbnail}}" alt="">
+    <a class="google-btn" (click)=logOut() href="http://localhost:3000/user/logout">LogOut</a>
+  </div>
+</div>
+<div class="home">
+<a routerLink="/" class="right"><i class="fas fa-home fa-3x"></i></a>
+</div>
 <h3 class="center-align">Pregled rezervacija</h3>
   <table class="centered">
       <thead>

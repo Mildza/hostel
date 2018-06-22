@@ -11,7 +11,7 @@ flash-messages {
     border-radius: 10px;
     background-color: #b8988d;
     margin:0 auto;
-    text-align: center;    
+    text-align: center;
 }
 
 .wrapper input {    
@@ -82,7 +82,7 @@ input[type=text] {
   }
 
   table {
-    font-family: arial, sans-serif;
+    
     border-collapse: collapse;
     width: 100%;
 }
@@ -92,6 +92,8 @@ td, th {
     text-align: left;
     padding: 8px;
 }
+
+
 
 tr:nth-child(even) {
     background-color: #dddddd;

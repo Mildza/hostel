@@ -1,9 +1,15 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-
+import {Router, ActivatedRoute} from '@angular/router'
 import {IMyDrpOptions, IMyDateRangeModel} from 'mydaterangepicker';
 import {AuthService} from '../services/auth.service'
+import {UserService} from '../services/user.service'
 
 import * as moment from 'moment';
+import * as $ from 'jquery';
+import * as Materialize from 'materialize-css';
+
+declare let Materialize : any;
+declare let $ : any;
 
 @Component({
   selector: 'home',
@@ -53,10 +59,38 @@ export class HomeComponent implements OnInit {
   myDateRangePickerOptions2: IMyDrpOptions
   myDateRangePickerOptions3: IMyDrpOptions
   myDateRangePickerOptions4: IMyDrpOptions
+  
+  gookie: String
+  google: [{}]
 
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private userService: UserService,
+    private router:Router
+  ) {const gookie = this.authService.getGookie()
+    
+    if(gookie){
+      this.authService.getGoogleUser(gookie)
+      .subscribe(google => this.google = google)
+    }
+  }
 
   ngOnInit() {
+
+    $(function(){
+      $('.carousel').carousel({indicators: true});
+        $('.materialboxed').materialbox();
+        $('.fixed-action-btn').floatingActionButton();
+        $(".carousel-next").click(function() {
+      $(this).closest(".carousel").carousel("next");
+      });
+      $(".carousel-previous").click(function() {
+      $(this).closest(".carousel").carousel("prev");
+      });      
+      $('.carousel.carousel-slider').carousel({fullWidth: true});
+  }); // end of document ready
+
+
     this.beginDate = [{}]
     this.authService.getAll()
     .subscribe(result => {
@@ -158,5 +192,17 @@ export class HomeComponent implements OnInit {
     this.apartman = a
     this.hidden = true    
   }
- 
+
+
+  public check(event) {
+    console.log(event.altKey)
+          if(event.ctrlKey == true){
+        this.router.navigate(['/admin'])
+      }
+    }
+  
+    logOut(){
+      localStorage.clear()      
+    }  
+  
 }

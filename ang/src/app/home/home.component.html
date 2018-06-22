@@ -1,9 +1,20 @@
+<div class="home"  >
+<div *ngIf="!google">
+<a routerLink="/login" class="login right"><i class="fas fa-sign-in-alt fa-3x"></i></a>
+</div>
+<div *ngIf="google">
+  <div *ngFor="let user of google" class="google-image">
+  <img  src="{{user.thumbnail}}" alt="">
+<a routerLink="/admin">Admin</a> 
+<a class="google-btn" (click)=logOut() href="http://localhost:3000/user/logout">LogOut</a>
+</div>
+</div>
 <header>
-  <h1>Happy Star Hostel</h1>
+  <h1 class="heading" (click)="check($event)">Happy Star Hostel</h1>
 </header>
 <div class="container">
   <div class="center-align">
-    <landing></landing>
+    <!-- <landing></landing> -->
     <div class="carousel " data-indicators="true">
       <a class="carousel-item" href="#room1">
           <div class="card">
@@ -81,7 +92,7 @@
      [(ngModel)]="model" (dateRangeChanged)="onDateRangeChanged($event)">
     </my-date-range-picker>    
      <div *ngIf="btnSchedule">
-       <a href="#contactForm" class="btn waves-effect waves-light btn brown" (click)="apartman1('1' )">Zakaži</a>
+       <a href="#contactForm" class="btn waves-effect waves-light btn brown" (click)="apartman1('1')">Zakaži</a>
      </div>                 
     </form>
    
@@ -194,4 +205,4 @@
   </div>
 </div>
 <footer></footer>
-
+</div>

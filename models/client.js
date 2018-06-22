@@ -9,21 +9,20 @@ const Schema = mongoose.Schema({
     period:[{}]
   });
   
-  var mlab = "Client" 
-  var Client = "Client"
+var mlab = "Client" 
+var Client = "Client"
   
-  var Client = module.exports = mongoose.model(mlab, Schema);
+var Client = module.exports = mongoose.model(mlab, Schema);
 
-  module.exports.addClient = function(newClient, callback){    
-    newClient.save(callback);
-  }
+module.exports.addClient = function(newClient, callback){    
+  newClient.save(callback);
+}
 
-  module.exports.getAll = function(firstname, callback) {
-    const query = {firstname: firstname}
-    Client.find(query, callback)
-  }
+// module.exports.getAll = function(email, callback) {
+//   Client.find({email: email}, callback)
+// }
 
-  module.exports.deleteClient = function(id, callback) {
+module.exports.deleteClient = function(id, callback) {
     const query = {_id: id}  
     Client.remove(query, callback)  
 }

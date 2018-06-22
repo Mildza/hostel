@@ -1,0 +1,73 @@
+.login {
+    position: absolute;
+    top:10px;
+    left:10px;
+  }
+.login a {
+    padding:10px;
+}  
+
+.padding {padding-bottom: 30px;}
+
+.labels {
+    padding: 10px;
+    text-align: right;    
+}
+
+.labels > label {
+    font-size: 16px;
+    
+}
+span {
+   
+    padding:10px;
+}
+
+.google {
+    margin-top: 80px;
+}
+
+.google h3 {
+    margin-bottom: 50px;
+}
+.google-btn {    
+    padding:10px;
+    background-color: #ff5353;
+    color: #fff;
+    border-radius:5px;
+}
+
+.admin {
+    width: 600px;
+    margin: auto auto;
+    text-align: center;
+}
+.admin a {
+    text-align: center;
+    font-size: 2rem;
+}
+
+input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
+    border: 0px solid black;
+    border-radius: 10px;}
+
+    .google-btn{
+        color: #fff;
+        text-decoration: none;
+        font-size: 18px;
+        padding: 10px;
+        background: #ff5353;
+    }
+
+
+@media (max-width: 992px){
+
+  label{padding-left: 0px;}
+
+  .labels {
+    
+    text-align: left;    
+}
+  
+  .padding {padding-bottom: 10px;}
+}

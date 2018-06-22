@@ -1,14 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const nodemailer = require('nodemailer');
-// const passport = require('passport');
-// const jwt = require('jsonwebtoken');
-// const config = require('../config/database');
 var Client = require('../models/client');
 const config = require('../config/database')
 
+
 router.post('/add', (req, res, next) =>{
-    
     const newclient = new Client ({
       firstname: req.body.firstname,
       lastname : req.body.lastname,
@@ -66,20 +63,38 @@ router.post('/add', (req, res, next) =>{
             console.log(error);
           }      
         });
-        res.json({success: true, msg:'Client added'});
-      
-    }); // console.log('Message sent: %s', info.messageId);
-     
+        res.json({success: true, msg:'Client added'});      
+    }); // console.log('Message sent: %s', info.messageId);     
   });
 
   router.get('/all', function(req, res, next) {
     Client.find({}, function (err, client) {
-      if (err) return handleError(err);
-      // Prints "Space Ghost is a talk show host".
-      res.json(client)
+      if(err){
+       console.log("greska")
+        next()       
+      } else {
+          console.log('jeste')
+          res.json(client)          
+      }     
     })    
   })
 
+
+  router.get('/one/:email', function(req, res, next) {
+    const email = req.params.email 
+    // console.log(email)
+    Client.find({email: email}, function (err, client) {
+      if(err){
+       console.log("greska")
+        next()      
+      } else {
+          console.log(client)
+          res.json(client)         
+      }     
+    })    
+  })
+  
+  
   router.delete('/delete/:id', function(req, res) {
     const id = req.params.id       
     Client.deleteClient(id, (err) => {
@@ -90,6 +105,5 @@ router.post('/add', (req, res, next) =>{
       res.json({success: true, msg:'Client deleted'})
     })
   }) 
-
   
 module.exports = router
