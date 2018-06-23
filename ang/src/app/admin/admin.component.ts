@@ -48,7 +48,7 @@ export class AdminComponent implements OnInit {
   }  
 
   public deleteClient(id){
-      this.http.delete('http://localhost:3000/clients/delete/'+id).subscribe(res => {
+      this.http.delete('clients/delete/'+id).subscribe(res => {
         if(res.status){
           this.flashMessage.show('Obrisano', {cssClass: 'green', timeout: 3000})
           this.router.navigate(['/admin'])
