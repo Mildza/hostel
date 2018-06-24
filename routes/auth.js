@@ -14,7 +14,7 @@ router.get('/google/redirect', passport.authenticate('google'), (req, res) => {
 //     res.send('User is:' + req.user)
 //   } else {
 //     res.sendFile(path.join(__dirname,'http://localhost:4200/admin/'), {user: req.user})
-     let redirectUrl = 'http://localhost:4200/login/' + req.user.email;
+     let redirectUrl = 'http://localhost:4200/login/' + req.user.email; //http://localhost:4200/login/'
      res.redirect(redirectUrl)    
 //     res.send('you are logged in, this is your profile - ' + req.user.username);
 // }    

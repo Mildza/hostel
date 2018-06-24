@@ -1,7 +1,25 @@
-/* .home {
-  display: none;
-} */
-/* #795548 */
+.color1{
+background-color: #263238;
+}
+
+.color2{
+  background-color: #37474f;
+}
+  
+.color3{
+  background-color: #455a64;
+}
+
+#accesories i:hover{
+  background-color: #90a4ae;
+}
+
+.color4{
+  background-color: #FFF;
+  color: #263238;
+}
+
+
 header {
   background-color: #424242;  
   min-height: 100px;
@@ -18,6 +36,8 @@ header  h1 {
 margin: 10px;
 }
 
+
+
 footer {
   height:30px;
 }
@@ -25,12 +45,15 @@ footer {
     text-align: justify;
 }
 
-#accesories i:hover{
-  background-color: #ffb300;
+
+.slajder {
+  
+  margin:auto auto;
 }
 
 .carousel  {
-  width:1000px !important;
+  margin: auto auto;
+  width:900px !important;
   height:500px !important;
 }
 
@@ -81,15 +104,41 @@ my-date-range-picker {
 }
 
 
+@media screen and (max-width: 1240px) {
+
+
+  .carousel  {
+    margin: auto auto;
+    width:720px !important;
+    height:500px !important;
+  }
+  
+   .carousel-item {
+    width:520px !important;
+    height:450px !important;
+  }
+ 
+} 
+
 @media screen and (max-width: 800px) {
-  .carousel .carousel-item {
-    width:350px !important;
-    height:200px !important;
+
+
+  .carousel  {
+    max-width:576px !important;
+    max-height:500px !important;
   }
-  .carousel {
-    height:300px;
+  
+   .carousel-item {
+    max-width:416px !important;
+    max-height:450px !important;
   }
-  h1 {font-size: 3rem;}
+
+  h1 {
+    font-size: 3rem;
+    }
+
+  .heading {margin-top:15px;}
+
   #map iframe {        
     width: 100%;
   }
@@ -106,3 +155,43 @@ my-date-range-picker {
     margin-left:0px;
   }
 }  
+
+@media screen and (max-width: 600px) {
+
+  .carousel  {
+    max-width:400px !important;
+    max-height:350px !important;
+    margin-top:5px;
+  }
+  
+   .carousel-item {
+    max-width:400px !important;
+    max-height:300px !important;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-top:40px;
+  }
+
+  .heading {margin-top:25px;}
+ 
+} 
+
+@media screen and (max-width: 450px) {
+
+  .carousel  {
+    max-width:300px !important;
+    max-height:300px !important;
+    margin-top:15px;
+  }
+  
+   .carousel-item {
+    max-width:300px !important;
+    max-height:300px !important;
+  }
+
+
+  .heading {margin-top:10px;}
+ 
+} 

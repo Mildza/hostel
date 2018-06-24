@@ -14,7 +14,7 @@ router.get('/find/:email', function(req, res, next) {
 
 router.get('/logout', function(req, res, next) {
   req.logout()
-  res.redirect('http://localhost:4200')
+  res.redirect('http://localhost:4200')  // http://localhost:4200
   })     
-  
+ 
 module.exports = router

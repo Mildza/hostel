@@ -35,9 +35,7 @@ export class LoginComponent implements OnInit {
     private userService: UserService,
     private http: Http,
     private route:ActivatedRoute     
-  ) { 
-    
-  } 
+  ) {} 
    
   ngOnInit() { 
     const email = this.route.snapshot.params['id']
@@ -49,47 +47,13 @@ export class LoginComponent implements OnInit {
       .subscribe(googleUser => {
         this.googleUser = googleUser
       })
-      
-            
+                 
       // this.authService.getAll()
       // .subscribe(result => this.result = result)
       // // this.flashMessage.show('We are in about component!', { cssClass: 'green', timeout: 3000 });      
     } else {
 
     } 
-  }
-
-  onLoginSubmit(){
-    const user = {      
-      username: this.username,
-      password: this.password      
-  }
-
-  console.log(user)
-  
-  // this.authService.authenticateUser(user).subscribe(data => {
-  //   if(data.success){
-  //     this.authService.storeUserData(data.token, data.user)        
-  //     this.flashMessage.show(
-  //       'Ulogovani ste', {
-  //       cssClass: 'alert-success', 
-  //       timeout: 3000})
-        
-  //       this.storageService.getStorage()
-
-  //       let sudouser = this.username;
-  //       this.userService.sudouser.next(sudouser);
-        
-  //     this.router.navigate(['all'])
-
-  //   } else {
-  //     this.flashMessage.show(
-  //       data.msg, {
-  //       cssClass: 'alert-danger', 
-  //       timeout: 3000})
-  //     this.router.navigate(['/login']) 
-  //     }
-  // })
   }
 
   google(){

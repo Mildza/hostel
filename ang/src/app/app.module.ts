@@ -24,8 +24,9 @@ const appRoutes: Routes = [
   {path: 'admin/:id', component: AdminComponent, canActivate:[AuthGuard]},
   {path: 'admin', component: AdminComponent, canActivate:[AuthGuard]},
   {path: 'google/redirect', component: AdminComponent, canActivate:[AuthGuard]},  
+  {path: 'auth/google/login/:id', component: LoginComponent},
+  {path: 'login/:id', component: LoginComponent},
   {path: 'login', component: LoginComponent},  
-  {path: 'login/:id', component: LoginComponent},  
   {path: 'home', component: HomeComponent},
   {path: '404', component: HomeComponent},
   {path: '**',redirectTo: '/404'}   

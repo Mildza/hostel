@@ -14,28 +14,28 @@ export class AuthService {
   addReserve(client) {
     let headers = new Headers()    
     headers.append('Content-Type', 'application/json')
-    return this.http.post('clients/add', client, {headers: headers})
+    return this.http.post('http://localhost:3000/clients/add', client, {headers: headers})
       .map(res => res.json())
   }
 
   getAll(){          
     let headers = new Headers()    
     headers.append('Content-Type', 'application/json')
-    return this.http.get('clients/all', {headers: headers})
+    return this.http.get('http://localhost:3000/clients/all', {headers: headers})
       .map(res => res.json())
   }
 
   getOne(email){          
     let headers = new Headers()    
     headers.append('Content-Type', 'application/json')
-    return this.http.get('clients/one/' + email, {headers: headers})
+    return this.http.get('http://localhost:3000/clients/one/' + email, {headers: headers})
       .map(res => res.json())
   }
 
    getGoogleUser(email){          
     let headers = new Headers()    
     headers.append('Content-Type', 'application/json')
-    return this.http.get('user/find/' + email, {headers: headers})
+    return this.http.get('http://localhost:3000/user/find/' + email, {headers: headers})
       .map(res => res.json())
   }
 
@@ -44,14 +44,14 @@ export class AuthService {
     localStorage.clear()          
     let headers = new Headers()     
     headers.append('Content-Type', 'application/json')
-    return this.http.get('user/logout', {headers: headers})
+    return this.http.get('http://localhost:3000/user/logout', {headers: headers})
       .map(res => res.json())
   }
 
   deleteClient(id) { 
     let headers = new Headers()
     headers.append('Content-Type', 'application/json')
-    return this.http.delete('clients/delete/'+ id, {headers: headers})
+    return this.http.delete('http://localhost:3000/clients/delete/'+ id, {headers: headers})
       .map(res => res.json())
   }
 
@@ -61,7 +61,7 @@ export class AuthService {
     headers.append('Access-Control-Allow-Methods', 'GET,PUT,POST') 
     headers.append('Access-Control-Allow-Headers', 'Content-Type,Authorization') 
     headers.append('Content-Type', 'application/json')
-    return this.http.get('auth/google', {headers: headers})
+    return this.http.get('http://localhost:3000/auth/google', {headers: headers})
       .map(res => res.json())
   }
 

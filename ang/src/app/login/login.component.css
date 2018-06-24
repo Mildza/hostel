@@ -24,7 +24,7 @@ span {
 }
 
 .google {
-    margin-top: 80px;
+    margin-top: 120px;
 }
 
 .google h3 {
@@ -38,7 +38,6 @@ span {
 }
 
 .admin {
-    width: 600px;
     margin: auto auto;
     text-align: center;
 }
@@ -71,3 +70,11 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
   
   .padding {padding-bottom: 10px;}
 }
+
+@media (max-width: 601px){
+
+    .admin h3 {
+        
+        font-size:2.3rem;
+    }
+  }

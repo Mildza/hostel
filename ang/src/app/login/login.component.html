@@ -8,41 +8,10 @@
   </div>
 </div>
 <div class="container-fluid">
-  <!-- <form class="form-horizontal" (submit)="onLoginSubmit()">
-    <fieldset>
-      <div class="center padding">   
-      <h3>LOGOVANJE</h3>
-      </div>
-        <div class="form-group row">  
-        <div class="col l2 m12 s12 push-l3 input-group labels">    
-          <label for="inputUsername" class="control-label">Username</label>
-          <span class="input-group-addon "><i class="fas fa-user fa-2x"></i></span>
-        </div>
-        <div class="col l3 m12 s12 push-l3 input-group">
-          
-          <input type="text" [(ngModel)]="username" name="username" class="form-control" id="inputUsername" placeholder="Username" autofocus>
-        
-        </div>
-      </div>
-      <div class="form-group row">
-        <div class="col l2 m12 s12 push-l3 input-group labels">
-          <label for="inputPassword" class="control-label">Password</label>
-          <span class="input-group-addon"><i class="fas fa-unlock-alt fa-2x"></i></span>
-        </div>
-        <div class="col l3 m12 s12 push-l3 input-group">          
-          <input type="password" [(ngModel)]="password" name="password" class="form-control" id="inputPassword" placeholder="Password">      
-      </div>    
-      </div>    
-    </fieldset>
-    <div class="center-align">
-      <input type="submit" class="btn btn-primary " value="Submit">
-    </div>  
-  </form>
-<br> -->
 
   <div *ngIf="!googleUser" class="center-align google">
       <h3>Logujte se google nalogom</h3>  
-    <a class="google-btn" (click)=google() href="auth/google">Google+</a>
+    <a class="google-btn" (click)=google() href="http://localhost:3000/auth/google">Google+</a>
   </div>
   <div *ngIf="googleUser" class="admin">
     <h3>Dobrodosao {{googleUser[0].username}}</h3>

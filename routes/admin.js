@@ -13,7 +13,7 @@ const authCheck = (req, res, next) => {
 
 router.get('/', authCheck, (req, res) => {
     // res.send('you are logged in, this is your profile - ' + req.user.username);
-    let redirectUrl = 'http://localhost:4200/login/' + req.user;
+    let redirectUrl = 'http://localhost:4200/login/' + req.user; //http://localhost:4200/login/'
     res.redirect(redirectUrl)
 });
 
