@@ -36,7 +36,7 @@ header  h1 {
 margin: 10px;
 }
 
-
+.row img {border-radius: 15px;}
 
 footer {
   height:30px;
@@ -125,12 +125,12 @@ my-date-range-picker {
 
   .carousel  {
     max-width:576px !important;
-    max-height:500px !important;
+    max-height:410px !important;
   }
   
    .carousel-item {
     max-width:416px !important;
-    max-height:450px !important;
+    max-height:400px !important;
   }
 
   h1 {
@@ -171,10 +171,15 @@ my-date-range-picker {
 
   h1 {
     font-size: 2rem;
-    margin-top:40px;
+    margin-top:30px;
   }
 
-  .heading {margin-top:25px;}
+  .heading {margin-top:15px;}
+
+  .row .col {
+    padding: 10px .75rem;
+    
+}
  
 } 
 
@@ -193,5 +198,9 @@ my-date-range-picker {
 
 
   .heading {margin-top:10px;}
+  .row .col {
+    padding: 10px .75rem;
+    
+}
  
 } 

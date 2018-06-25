@@ -4,34 +4,46 @@
   <p>Uskoro cemo vam potvrditi rezervaciju.</p>
 </div> -->
 
-<div class="wrapper" *ngIf="!submited">
+ <div class="wrapper" > <!--*ngIf="!submited" -->
 <form #validateForm="ngForm" (ngSubmit)="onSubmit()">
   <div class="form-group" novalidate>
     <h4>REZERVACIJA</h4>
-    <div class="wrapper-inner">
-      <input type="text" class="form-control" [(ngModel)]="client.firstname" name="firstname" #firstname="ngModel" minlength="3" required placeholder="Ime">
-      <div *ngIf="firstname.errors && (firstname.dirty || firstname.touched)">
-        <div class="hint" [hidden]="!firstname.errors.required"> 
-          Please insert firstname
+    <div class="wrapper-inner row">
+      <div class="col s12 m6">
+        <input type="text" class="form-control" [(ngModel)]="client.firstname" name="firstname" #firstname="ngModel" minlength="3" required placeholder="Ime">
+    </div>
+      <div class="col s12 m6">
+        <div *ngIf="firstname.errors && (firstname.dirty || firstname.touched)">
+          <div class="hint" [hidden]="!firstname.errors.required"> 
+            Please insert firstname
+          </div>
+          <div class="hint" *ngIf="firstname.errors.minlength">
+              At least 3 characters long.
+          </div>
+      </div>
+      </div>
+    </div>
+    <div class="wrapper-inner row">
+      <div class="col s12 m6">    
+        <input type="text" class="form-control" [(ngModel)]="client.lastname" name="lastname" #lastname="ngModel" minlength="3" required placeholder="Prezime">
+      </div>
+    <div class="col s12 m6">
+      <div *ngIf="lastname.errors && (lastname.dirty || lastname.touched)" class="alert alert-danger">
+        <div class="hint" [hidden]="!lastname.errors.required"> 
+          Please insert lastname
         </div>
-        <div class="hint" *ngIf="firstname.errors.minlength">
+        <div class="hint" *ngIf="lastname.errors.minlength">
             At least 3 characters long.
         </div>
       </div>
     </div>
-    <div class="wrapper-inner">    
-    <input type="text" class="form-control" [(ngModel)]="client.lastname" name="lastname" #lastname="ngModel" minlength="3" required placeholder="Prezime">
-    <div *ngIf="lastname.errors && (lastname.dirty || lastname.touched)" class="alert alert-danger">
-      <div class="hint" [hidden]="!lastname.errors.required"> 
-        Please insert lastname
-      </div>
-      <div class="hint" *ngIf="lastname.errors.minlength">
-          At least 3 characters long.
-      </div>
-    </div>
   </div>
-  <div class="wrapper-inner">
-    <input type="text" required [email]="client.email !==''" class="form-control" [(ngModel)]="client.email" name="email" #email="ngModel"  placeholder="email" required >
+  <div class="wrapper-inner row">
+    <div class="col s12 m6">
+      <input type="text" required [email]="client.email !==''" class="form-control" [(ngModel)]="client.email" name="email" #email="ngModel"  placeholder="email" required >
+    </div>
+
+    <div class="col s12 m6">
     <span *ngIf="email.errors?.required && email.dirty" class="alert alert-danger">
       <div class="hint"> 
         Unesite email adresu
@@ -39,14 +51,20 @@
     </span>
       <div class="hint" *ngIf="email.errors?.email && email.touched">
         Unesite validnu email adresu
-      </div>      
+      </div> 
+    </div>     
+  </div>
+  <div class="wrapper-inner row">
+    <div class="col s12 m10">
+    <textarea rows="4" cols="30" [(ngModel)]="client.comentar" name="comentar" #comentar="ngModel" placeholder="Napomena"></textarea> 
+  </div>   
   </div>
 
-  <p>Apartman broj: {{apartman}}</p>
-  <p>Vreme dolaska: {{schedule[0]?.beginDate.day}}/{{schedule[0]?.beginDate.month}}/{{schedule[0]?.beginDate.year}}</p>
-  <p>Vreme odlaska: {{schedule[1]?.endDate.day}}/{{schedule[1]?.endDate.month}}/{{schedule[1]?.endDate.year}}</p>
+  <p>Apartman broj: <strong>{{apartman}}</strong></p>
+  <p>Vreme dolaska: <strong>{{schedule[0]?.beginDate.day}}/{{schedule[0]?.beginDate.month}}/{{schedule[0]?.beginDate.year}}</strong></p>
+  <p>Vreme odlaska: <strong>{{schedule[1]?.endDate.day}}/{{schedule[1]?.endDate.month}}/{{schedule[1]?.endDate.year}}</strong></p>
 
-  <button type="submit" [disabled]="!validateForm.valid">Submit</button>
+  <button type="submit" class="btn waves-effect waves-light btn brown" [disabled]="!validateForm.valid">Submit</button>
   </div>
 </form>
 </div>

@@ -21,6 +21,7 @@
             <th>Ime</th>
             <th>Prezime</th>
             <th>email</th>
+            <th>Napomena</th>
         </tr>
       </thead>
 
@@ -33,6 +34,7 @@
           <td>{{client.firstname}}</td>
           <td>{{client.lastname}}</td>
           <td>{{client.email}}</td>
+          <td>{{client.comentar}}</td>
           <td><button id="delete"  class="btn btn-primary center-block red" (click)=deleteClient(client._id)>Obrisi</button></td>
           
         </tr>

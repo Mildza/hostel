@@ -11,7 +11,8 @@ router.post('/add', (req, res, next) =>{
       lastname : req.body.lastname,
       email : req.body.email,
       room : req.body.room,
-      period: req.body.period
+      period: req.body.period,
+      comentar: req.body.comentar
       })
   
       let daystart = newclient.period[0].beginDate.day
@@ -30,6 +31,7 @@ router.post('/add', (req, res, next) =>{
         <p><strong> Ime: </strong>${newclient.firstname}</p>
         <p><strong> Prezime: </strong>${newclient.lastname}</p>
         <p><strong> Email: </strong>${newclient.email}</p>
+        <p><strong> Komentar: </strong>${newclient.comentar}</p>
       `
     
     let transporter = nodemailer.createTransport({
@@ -46,7 +48,7 @@ router.post('/add', (req, res, next) =>{
     });  
   // setup email data with unicode symbols
   let mailOptions = {
-      from: '"Happy Star Hostel" <${newclient.email}>', // sender address
+      from: '"Happy Star" <${newclient.email}>', // sender address
       to: 'mildzan@gmail.com', // sale.gaga@gmail.com
       subject: 'Rezervacija ', // Subject line
       text: 'Hello world?', // plain text body
@@ -145,7 +147,7 @@ router.post('/add', (req, res, next) =>{
     });  
   // setup email data with unicode symbols
   let mailOptions2 = {
-      from: '"Happy Star Hostel" <${email}>', // sender address
+      from: '"Happy Star" <${email}>', // sender address
       to: 'mildzan@gmail.com', // sale.gaga@gmail.com
       subject: 'Otkazana Rezervacija ', // Subject line
       text: 'Hello world?', // plain text body

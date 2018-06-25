@@ -23,7 +23,8 @@ export class ContactFormComponent implements OnInit {
     lastname: string,
     email: any,
     room: string,
-    period: [{},{}]
+    period: [{},{}],
+    comentar: string
   }
 
   email: String
@@ -48,7 +49,8 @@ export class ContactFormComponent implements OnInit {
       lastname : "",
       email : this.email ? this.email : "",
       room: "",
-      period: null
+      period: null,
+      comentar:""
     }   
   }  
 
@@ -60,8 +62,9 @@ export class ContactFormComponent implements OnInit {
       lastname : this.client.lastname,
       email : this.client.email,
       room : this.apartman,
-      period: [this.schedule[0],this.schedule[1]]
-    }   
+      period: [this.schedule[0],this.schedule[1]],
+      comentar:this.client.comentar
+    }
     this.authService.addReserve(this.client).subscribe(res => {
       if(res.success){
         this.flashMessage.show('Zakazan termin, potvrdicemo Vam rezervaciju', {cssClass: 'green', timeout: 3000})

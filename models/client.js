@@ -6,7 +6,8 @@ const Schema = mongoose.Schema({
     lastname: String,
     email: String,
     room: String,
-    period:[{}]
+    period:[{}],
+    comentar: String
   });
   
 var mlab = "Client" 
