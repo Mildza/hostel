@@ -65,6 +65,22 @@ export class AuthService {
       .map(res => res.json())
   }
 
+
+  getPrice() {
+    let headers = new Headers()    
+    headers.append('Content-Type', 'application/json')
+    return this.http.get('http://localhost:3000/price/getPrice', {headers: headers})
+      .map(res => res.json())
+  }
+
+  changeDiscount(room) {
+    let headers = new Headers()    
+    headers.append('Content-Type', 'application/json')
+    return this.http.post('http://localhost:3000/price/discount', room, {headers: headers})
+      .map(res => res.json())
+  }
+
+
   storeUserData(gookie){
     localStorage.setItem('gookie', gookie)
     this.email = gookie

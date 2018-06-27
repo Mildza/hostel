@@ -31,6 +31,7 @@ export class ContactFormComponent implements OnInit {
   google: [{
     email: String
   }]
+  validateForm
  
   constructor(
     private authService: AuthService,
@@ -62,15 +63,16 @@ export class ContactFormComponent implements OnInit {
       lastname : this.client.lastname,
       email : this.client.email,
       room : this.apartman,
-      period: [this.schedule[0],this.schedule[1]],
-      comentar:this.client.comentar
+      comentar:this.client.comentar,
+      period: [this.schedule[0], this.schedule[1]]
+      
     }
     this.authService.addReserve(this.client).subscribe(res => {
       if(res.success){
         this.flashMessage.show('Zakazan termin, potvrdicemo Vam rezervaciju', {cssClass: 'green', timeout: 3000})
         // this.router.navigate(['/home'])
         // this.authService.getAll(this.client.email)
-        // .subscribe(result => this.result = result)  
+        // .subscribe(result => this.result = result)
       } else {
         this.flashMessage.show('Zakazivanje nije uspelo', {cssClass: 'red', timeout: 3000})
       }

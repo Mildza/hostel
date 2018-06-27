@@ -12,7 +12,8 @@ router.post('/add', (req, res, next) =>{
       email : req.body.email,
       room : req.body.room,
       period: req.body.period,
-      comentar: req.body.comentar
+      comentar: req.body.comentar,
+      price: req.body.price
       })
   
       let daystart = newclient.period[0].beginDate.day
@@ -26,12 +27,13 @@ router.post('/add', (req, res, next) =>{
     const output = `
       <h3>Rezervacija</h3> 
         <p><strong> Apartman: </strong>${newclient.room}</p>
+        <p><strong> Cena: </strong>${newclient.price}</p>
         <p><strong> Dolazak: </strong>${daystart}/${monthstart}/${yearstart}</p>
         <p><strong> Odlazak: </strong>${dayend}/${monthend}/${yearend}</p>        
         <p><strong> Ime: </strong>${newclient.firstname}</p>
         <p><strong> Prezime: </strong>${newclient.lastname}</p>
         <p><strong> Email: </strong>${newclient.email}</p>
-        <p><strong> Komentar: </strong>${newclient.comentar}</p>
+        <p><strong> Napomena: </strong>${newclient.comentar}</p>
       `
     
     let transporter = nodemailer.createTransport({
@@ -86,7 +88,7 @@ router.post('/add', (req, res, next) =>{
         if(err){
           next()       
         } else {
-            res.json(client)          
+            res.json(client)      
         }     
       }) 
     } else {
@@ -113,8 +115,9 @@ router.post('/add', (req, res, next) =>{
      let  email  = client[0].email
      let room = client[0].room
      let period = client[0].period
-    
-  
+     let comentar = client[0].comentar
+     let price = client[0].period
+
     let daystart = client[0].period[0].beginDate.day
     let monthstart = client[0].period[0].beginDate.month
     let yearstart = client[0].period[0].beginDate.year
@@ -126,11 +129,13 @@ router.post('/add', (req, res, next) =>{
     const output = `
       <h3>Otkazana Rezervacija za:</h3> 
         <p><strong> Apartman: </strong>${room}</p>
+        <p><strong> Cena: </strong>${price}</p>
         <p><strong> Dolazak: </strong>${daystart}/${monthstart}/${yearstart}</p>
         <p><strong> Odlazak: </strong>${dayend}/${monthend}/${yearend}</p>        
         <p><strong> Ime: </strong>${firstname}</p>
         <p><strong> Prezime: </strong>${lastname}</p>
         <p><strong> Email: </strong>${email}</p>
+        <p><strong> Napomena: </strong>${comentar}</p>
       `
     
     let transporter2 = nodemailer.createTransport({

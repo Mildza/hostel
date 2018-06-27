@@ -62,6 +62,30 @@ export class HomeComponent implements OnInit {
   
   gookie: String
   google: [{}]
+  room: [{
+    price,
+    discount
+  }]
+  price1: number
+  price2: number
+  price3: number
+  price4: number
+  discount1: number
+  discount2: number
+  discount3: number
+  discount4: number  
+  action1: Boolean
+  action2: Boolean
+  action3: Boolean
+  action4: Boolean
+  lowering1: number
+  lowering2: number
+  lowering3: number
+  lowering4: number
+  percent1: string
+  percent2: string
+  percent3: string
+  percent4: string
 
   constructor(
     private authService: AuthService,
@@ -76,6 +100,92 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    
+    this.authService.getPrice()
+    .subscribe(room => {
+      this.room = room
+      this.price1 = this.room[0].price
+      this.price2 = this.room[1].price
+      this.price3 = this.room[2].price
+      this.price4 = this.room[3].price
+
+      this.discount1 = this.room[0].discount
+      this.discount2 = this.room[1].discount
+      this.discount3 = this.room[2].discount
+      this.discount4 = this.room[3].discount
+
+      this.lowering1 = Math.round(this.price1 * this.discount1)
+      this.lowering2 = Math.round(this.price2 * this.discount2)
+      this.lowering3 = Math.round(this.price3 * this.discount3)
+      this.lowering4 = Math.round(this.price4 * this.discount4)
+
+      
+
+      if(this.discount1 < 1){
+        if( 10 - this.discount1*10 == 1){
+          this.percent1 = "10%"
+        } else if(10 -this.discount1*10 == 2) {
+          this.percent1 = "20%"
+        } else if(10 -this.discount1*10 == 3) {
+          this.percent1 = "30%"
+        } else if(10 -this.discount1*10 == 4) {
+          this.percent1 = "40%"
+        } else if(10 -this.discount1*10 == 5) {
+          this.percent1 = "50%"
+        }
+        this.action1=true
+      }else {
+        this.action1=false
+      }
+      if(this.discount2 < 1){
+        if( 10 - this.discount2*10 == 1){
+          this.percent2 = "10%"
+        } else if(10 -this.discount2*10 == 2) {
+          this.percent2 = "20%"
+        } else if(10 -this.discount2*10 == 3) {
+          this.percent2 = "30%"
+        } else if(10 -this.discount2*10 == 4) {
+          this.percent2 = "40%"
+        } else if(10 -this.discount2*10 == 5) {
+          this.percent2 = "50%"
+        }
+        this.action2=true
+      }else {
+        this.action2=false
+      }
+      if(this.discount3 < 1){
+        if( 10 - this.discount3*10 == 1){
+          this.percent3 = "10%"
+        } else if(10 -this.discount3*10 == 2) {
+          this.percent3 = "20%"
+        } else if(10 -this.discount3*10 == 3) {
+          this.percent3 = "30%"
+        } else if(10 -this.discount3*10 == 4) {
+          this.percent3 = "40%"
+        } else if(10 -this.discount3*10 == 5) {
+          this.percent3 = "50%"
+        }
+        this.action3=true
+      }else {
+        this.action3=false
+      }
+      if(this.discount4 < 1){
+        if( 10 - this.discount4*10 == 1){
+          this.percent4 = "10%"
+        } else if(10 -this.discount4*10 == 2) {
+          this.percent4 = "20%"
+        } else if(10 -this.discount4*10 == 3) {
+          this.percent4 = "30%"
+        } else if(10 -this.discount4*10 == 4) {
+          this.percent4 = "40%"
+        } else if(10 -this.discount4*10 == 5) {
+          this.percent4 = "50%"
+        }
+        this.action4=true
+      }else {
+        this.action4=false
+      }
+    })
 
     $(function(){
       $('.carousel').carousel({indicators: true});

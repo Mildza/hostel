@@ -24,8 +24,10 @@ export class AdminComponent implements OnInit {
   ) {}
 
   result: {}
+  result2: {}
   sudouser:{}
   google: [{}]
+  room: [{}]
   email:String
 
 
@@ -38,6 +40,8 @@ export class AdminComponent implements OnInit {
       // this.flashMessage.show('We are in about component!', { cssClass: 'green', timeout: 3000 });
       this.authService.getGoogleUser(this.email)
       .subscribe(google => this.google = google)
+      this.authService.getPrice()
+      .subscribe(room => this.room = room)  
     } 
   }
 
@@ -46,6 +50,23 @@ export class AdminComponent implements OnInit {
     // this.http.get('http://localhost:3000/user/logout')
     // .subscribe(data => console.log(data));
   }  
+  check(){ 
+    if(this.email === "mildzan@gmail.com") {
+      return true
+    } else {
+      return false
+    }        
+  }
+
+  changePrice(room, price, discount){
+    const rooms = {
+      number: room,
+      price: price,
+      discount: discount
+    }
+    this.authService.changeDiscount(rooms)
+    .subscribe(result2 => this.result2 = result2)
+  }
 
   public deleteClient(id){
       this.http.delete('http://localhost:3000/clients/delete/'+id).subscribe(res => {

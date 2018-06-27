@@ -90,7 +90,27 @@
         <br>
     </div>
     
-    <p class="about flow-text" id="describe">Ovde ide tekst o hostelu</p>
+    <p class="about flow-text" id="describe">
+      Ponosno Vam predstavljamo naš novi objekat u Nišu Happy Star.
+      Sastoji se od 4 brižmo uređenih soba sa sopstvenim kupatilom. 
+      Mnogo rada i truda je uloženo kako bi našim gostima ponudili najveću udobnost za vreme svojeg boravka.
+      Nalazimo se u najlepšem delu grada na Bulevaru Nemanjća. 
+      Na 5 minuta udaljeni od parka Svetog Save i u neposrednoj blizini najpoznatijeg spomenika Ćele-Kula.
+      U neposrednoj blizini nalazi se novootvoreni najmoderniji klinički centar juga Srbije. 
+      Trenutno najpoznatiji šoping centar Stop-Shop je udaljen 10 minuta hoda. 
+      Niška banja je udaljena svega 5km. Aerodrom Konstantin Veliki je udaljen 6km. 
+      Apartmani se nalaze u najlepšoj ulici u Nišu, poznatiju kao "ulica kestenova". 
+      Bežični internet je dostupan u celom objektu. Sobe su namenjene za nepušače ali postoji deo koji je namenjen za pušače. 
+      Besplatan parking je moguć i nije potrebna dodatna rezervacija.
+    </p>
+      <p class="about flow-text" id="describe">
+      Dođite i uverite se!!! 
+    </p>
+    <p class="about flow-text" id="describe">
+      Vaš Happy Star!
+    </p>
+    
+    
     <div  class="row">          
         <div class="col s12 m4">
           <img class="materialboxed responsive-img " src="../../assets/images/garden 2.JPG" alt="">
@@ -99,8 +119,8 @@
           <img class="materialboxed responsive-img" src="../../assets/images/garden.JPG" alt="">
         </div> 
         <div class="col s12 m4">
-          <img class="materialboxed responsive-img" src="../../assets/images/garden 3.JPG" alt="">
-        </div>
+            <img class="materialboxed responsive-img" src="../../assets/images/biciklo.jpg" alt="">
+          </div>
       </div>
     
     <hr>
@@ -122,7 +142,16 @@
         <li class="btn-floating color4 btn-medium"><i class="large color4 material-icons">wifi</i></li>            
         <li class="btn-floating color4 btn-medium"><i class="large color4 material-icons">smoking_rooms</i></li>
     </div>
-    <p class="about flow-text">Ovde ide tekst o apartmanu 1, cena itd ...</p>
+    <p class="about flow-text">
+      Klimatizovana soba sa francuskim ležajem za 2 osobe. 
+      Soba obuhvata flat-scrren TV sa kablovskim kanalima. 
+      Kompletno opremljenu čajnu kuhinju, sa indukcionom pločom, priborom za jelo i mini barom.
+      Gostima je na raspolaganju sopstveno kupatilo sa tušem i fenom za kosu.
+      Dodatne pogodnosti obuhvataju papuče i besplatni toaletni pribor.
+    </p>
+    <p *ngIf="action1" class="about flow-text discount">SNIŽENJE {{percent1}}</p>
+    <p class="about flow-text ">Cena: <span [ngClass]="action1 ? 'price2' : 'price'">{{lowering1}}</span> eura</p>
+    
     <label for="my-date-range-picker"></label>
 
     <form #myForm="ngForm" class="flex" novalidate>
@@ -154,7 +183,16 @@
         <li class="btn-floating color4 btn-medium"><i class="large color4 material-icons">wifi</i></li>            
         <li class="btn-floating color4 btn-medium"><i class="large color4 material-icons">smoking_rooms</i></li>
     </div>
-    <p class="about flow-text">Ovde ide tekst o apartmanu 2, cena itd ...</p>
+    <p class="about flow-text">
+        Klimatizovana soba sa francuskim ležajem za 2 osobe. 
+        Soba obuhvata flat-scrren TV sa kablovskim kanalima. 
+        Kompletno opremljenu čajnu kuhinju, sa indukcionom pločom, priborom za jelo i mini barom.
+        Gostima je na raspolaganju sopstveno kupatilo sa tušem i fenom za kosu.
+        Dodatne pogodnosti obuhvataju papuče i besplatni toaletni pribor.
+    </p>
+  
+    <p *ngIf="action2" class="about flow-text discount">SNIŽENJE {{percent2}}</p>
+    <p class="about flow-text">Cena: <span [ngClass]="action2 ? 'price2' : 'price'">{{lowering2}}</span> eura</p>
     
     <form #myForm="ngForm" class="flex" novalidate>
     <h4>Proveri dostupnost</h4>
@@ -185,7 +223,12 @@
         <li class="btn-floating color4 btn-medium"><i class="large color4 material-icons">tv</i></li>
         <li class="btn-floating color4 btn-medium"><i class="large color4 material-icons">wifi</i></li>            
     </div>
-    <p class="about flow-text">Ovde ide tekst o apartmanu 3, cena itd ...</p>
+    <p class="about flow-text">
+      Trokrevetna soba sa zajedničkim kpatilom. Soba obuhvata flat-screen TV sa kablovskim kanalima, frižider, indukcionu ploču i pribor za jelo. 
+      Dodatne pogodnosti obuhvataju papuče i besplatni toaletni pribor.
+    </p>
+    <p *ngIf="action3" class="about flow-text discount">SNIŽENJE {{percent3}}</p>
+    <p class="about flow-text">Cena: <span [ngClass]="action3 ? 'price2' : 'price'">{{lowering3}}</span> eura</p>
     
     <form #myForm="ngForm" class="flex" novalidate>
       <h4>Proveri dostupnost</h4>
@@ -217,7 +260,14 @@
       <li class="btn-floating color4 btn-medium"><i class="large color4 material-icons">wifi</i></li>            
       <li class="btn-floating color4 btn-medium"><i class="large color4 material-icons">smoking_rooms</i></li>
   </div>
-    <p class="about flow-text">Ovde ide tekst o apartmanu 4, cena itd ...</p>
+  <p class="about flow-text">
+    Dvokrevetna soba sa zajedničkim kupatilom. 
+    Soba on+buhvata flat-screen tv sa kablovskim kanalima, kompletno opremljenu čajnu kuhinju sa indukcionom pločom, priborom za jelo i mini-barom. 
+    Dodatne pogodnosti obuhvataju papuče i besplatni toaletni pribor.
+
+  </p>
+  <p *ngIf="action4" class="about flow-text discount">SNIŽENJE {{percent4}}</p>
+  <p class="about flow-text">Cena: <span [ngClass]="action4 ? 'price2' : 'price'">{{lowering4}}</span> eura</p>
     
     <form #myForm="ngForm" class="flex" novalidate>
       <h4>Proveri dostupnost</h4>

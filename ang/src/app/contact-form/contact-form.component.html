@@ -4,7 +4,7 @@
   <p>Uskoro cemo vam potvrditi rezervaciju.</p>
 </div> -->
 
- <div class="wrapper" > <!--*ngIf="!submited" -->
+ <div *ngIf="!submited" class="wrapper" > 
 <form #validateForm="ngForm" (ngSubmit)="onSubmit()">
   <div class="form-group" novalidate>
     <h4>REZERVACIJA</h4>
@@ -60,9 +60,9 @@
   </div>   
   </div>
 
-  <p>Apartman broj: <strong>{{apartman}}</strong></p>
-  <p>Vreme dolaska: <strong>{{schedule[0]?.beginDate.day}}/{{schedule[0]?.beginDate.month}}/{{schedule[0]?.beginDate.year}}</strong></p>
-  <p>Vreme odlaska: <strong>{{schedule[1]?.endDate.day}}/{{schedule[1]?.endDate.month}}/{{schedule[1]?.endDate.year}}</strong></p>
+  <p>Apartman broj: {{apartman}}</p>
+  <p>Vreme dolaska: {{schedule[0]?.beginDate?.day}}/{{schedule[0]?.beginDate?.month}}/{{schedule[0]?.beginDate?.year}}</p>
+  <p>Vreme odlaska: {{schedule[1]?.endDate?.day}}/{{schedule[1]?.endDate?.month}}/{{schedule[1]?.endDate?.year}}</p>
 
   <button type="submit" class="btn waves-effect waves-light btn brown" [disabled]="!validateForm.valid">Submit</button>
   </div>

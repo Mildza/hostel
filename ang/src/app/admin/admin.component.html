@@ -21,7 +21,7 @@
             <th>Ime</th>
             <th>Prezime</th>
             <th>email</th>
-            <th>Napomena</th>
+            <th>email</th>
         </tr>
       </thead>
 
@@ -40,6 +40,17 @@
         </tr>
       </tbody>
     </table>
+
+    <div *ngIf="check()" class=changeForm>
+      <div *ngFor="let rooms of room">
+      <p>Promeni cenu ili popust za sobu br {{rooms.number}}</p>
+      <input type="number"  [(ngModel)]="rooms.price" name="newprice" #newprice="ngModel">
+      <input type="number"  [(ngModel)]="rooms.discount" name="newdiscount" #newprice="ngModel" max="1" step="0.1" min="0.5">
+
+      <button class="btn btn-primary center-block green" (click)="changePrice(rooms.number, rooms.price, rooms.discount)">Promeni</button>  
+      
+    </div>
+    </div>
           
 
 </div>

@@ -7,7 +7,8 @@ const Schema = mongoose.Schema({
     email: String,
     room: String,
     period:[{}],
-    comentar: String
+    comentar: String,
+    price: Number
   });
   
 var mlab = "Client" 
