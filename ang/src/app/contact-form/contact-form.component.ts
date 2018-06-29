@@ -14,6 +14,8 @@ export class ContactFormComponent implements OnInit {
 
   @Input() apartman: string
 
+  @Input() sendPrice: number
+
   @Input() submited: boolean
   
   @Input() schedule = [{}]
@@ -24,7 +26,8 @@ export class ContactFormComponent implements OnInit {
     email: any,
     room: string,
     period: [{},{}],
-    comentar: string
+    comentar: string,
+    price: number
   }
 
   email: String
@@ -51,7 +54,8 @@ export class ContactFormComponent implements OnInit {
       email : this.email ? this.email : "",
       room: "",
       period: null,
-      comentar:""
+      comentar:"",
+      price:null
     }   
   }  
 
@@ -64,7 +68,8 @@ export class ContactFormComponent implements OnInit {
       email : this.client.email,
       room : this.apartman,
       comentar:this.client.comentar,
-      period: [this.schedule[0], this.schedule[1]]
+      period: [this.schedule[0], this.schedule[1]],
+      price: this.sendPrice
       
     }
     this.authService.addReserve(this.client).subscribe(res => {

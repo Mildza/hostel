@@ -56,14 +56,15 @@ export class LoginComponent implements OnInit {
     } 
   }
 
-  google(){
-    this.authService.googleAuth()
-    // .subscribe(data => console.log(data))
-    // this.http.get('http://localhost:3000/auth/google/redirect')
-    // .subscribe(data => console.log(data));
-  }
+  // google(){
+  //   this.authService.googleAuth()
+    
+  //   // this.http.get('http://localhost:3000/auth/google/redirect')
+  //   // .subscribe(data => console.log(data));
+  // }
 
   logOut(){
-    localStorage.clear()      
+    this.authService.logOut()
+    // localStorage.clear()      
   }  
 }

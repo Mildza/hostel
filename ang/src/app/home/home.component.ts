@@ -87,6 +87,8 @@ export class HomeComponent implements OnInit {
   percent3: string
   percent4: string
 
+  sendPrice:number
+
   constructor(
     private authService: AuthService,
     private userService: UserService,
@@ -118,8 +120,6 @@ export class HomeComponent implements OnInit {
       this.lowering2 = Math.round(this.price2 * this.discount2)
       this.lowering3 = Math.round(this.price3 * this.discount3)
       this.lowering4 = Math.round(this.price4 * this.discount4)
-
-      
 
       if(this.discount1 < 1){
         if( 10 - this.discount1*10 == 1){
@@ -299,6 +299,16 @@ export class HomeComponent implements OnInit {
 
   apartman1(a){
     this.apartman = a
+    if(a==1){
+      this.sendPrice=this.lowering1
+    } else if(a==2){
+      this.sendPrice=this.lowering2
+    } else if(a==3){
+      this.sendPrice=this.lowering3
+    } else if(a==4){
+      this.sendPrice=this.lowering4
+    }
+    
     this.hidden = true    
   }
 
@@ -310,7 +320,8 @@ export class HomeComponent implements OnInit {
     }
   
     logOut(){
-      localStorage.clear()      
+      this.authService.logOut()
+      // localStorage.clear()      
     }  
   
 }

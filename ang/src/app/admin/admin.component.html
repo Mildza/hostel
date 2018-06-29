@@ -6,7 +6,7 @@
 <div *ngIf="google" class="google">
   <div *ngFor="let user of google" class="google-image">
     <img  src="{{user.thumbnail}}" alt="">
-    <a class="google-btn" (click)=logOut() href="http://localhost:3000/user/logout">LogOut</a>
+    <a class="google-btn" (click)=logOut() href="">LogOut</a>
   </div>
 </div>
 <div class="home">
@@ -18,10 +18,11 @@
         <tr>
             <th>Apartman</th>
             <th>Period</th>
+            <th>Cena</th>
             <th>Ime</th>
             <th>Prezime</th>
             <th>email</th>
-            <th>email</th>
+            <th>Napomena</th>
         </tr>
       </thead>
 
@@ -31,6 +32,7 @@
           <td>{{client.period[0].beginDate.day}}/{{client.period[0].beginDate.month}}/{{client.period[0].beginDate.year}}
             - {{client.period[1].endDate.day}}/{{client.period[1].endDate.month}}/{{client.period[1].endDate.year}}
           </td>
+          <td>{{client.price}}</td>
           <td>{{client.firstname}}</td>
           <td>{{client.lastname}}</td>
           <td>{{client.email}}</td>

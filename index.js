@@ -9,7 +9,6 @@ const mongoose = require('mongoose')
 const passportSetup = require('./config/passport-setup.js')
 const clients = require('./routes/clients')
 const auth = require('./routes/auth')
-const admin = require('./routes/admin')
 const google = require('./routes/user')
 const config = require('./config/database')
 const user = require('./models/users')
@@ -40,7 +39,6 @@ app.use(bodyParser.json());
 
 app.use('/clients', clients)
 app.use('/auth', auth)
-app.use('/admin', admin)
 app.use('/user', google)
 app.use('/price', price)
 
@@ -49,13 +47,6 @@ const port = process.env.PORT || 3000
 // app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-// app.get('/admin', (req, res) => {
-//     res.sendFile(path.join(__dirname, ('public/index.html/admin')))
-// })
-// app.get('admin', (req, res) => {
-//     res.sendFile(path.join(__dirname, ('public/index.html')))
-// })
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, ('public/index.html')))
 })

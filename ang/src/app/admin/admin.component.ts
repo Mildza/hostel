@@ -46,7 +46,7 @@ export class AdminComponent implements OnInit {
   }
 
   logOut(){
-    localStorage.clear()
+    this.authService.logOut()
     // this.http.get('http://localhost:3000/user/logout')
     // .subscribe(data => console.log(data));
   }  
@@ -69,8 +69,9 @@ export class AdminComponent implements OnInit {
   }
 
   public deleteClient(id){
-      this.http.delete('http://localhost:3000/clients/delete/'+id).subscribe(res => {
-        if(res.status){
+      this.authService.deleteClient(id)
+      .subscribe(res => {
+        if(res.success==true){
           this.flashMessage.show('Obrisano', {cssClass: 'green', timeout: 3000})
           this.router.navigate(['/admin'])
           this.authService.getOne(this.email)
@@ -79,5 +80,6 @@ export class AdminComponent implements OnInit {
           this.flashMessage.show('Brisanje nije uspelo', {cssClass: 'red', timeout: 3000})
         }
       })
+      // this.http.delete('http://localhost:3000/clients/delete/'+id).subscribe
     }  
 }

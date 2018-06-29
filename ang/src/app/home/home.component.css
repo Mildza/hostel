@@ -37,6 +37,9 @@ header {
 header  h1 {
 margin: 10px;
 }
+header  h4{
+  margin-top: 0px;
+  }
 
 .row img {border-radius: 15px;}
 
@@ -212,6 +215,10 @@ span {
   h1 {
     font-size: 2rem;
     margin-top:30px;
+  }
+  h4 {
+    font-size: 1rem;
+    
   }
 
   .heading {margin-top:15px;}

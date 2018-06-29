@@ -4,14 +4,14 @@
 <div *ngIf="googleUser" class="google">
   <div *ngFor="let user of googleUser" class="google-image">
     <img  src="{{user.thumbnail}}" alt="">
-    <a  (click)=logOut() href="http://localhost:3000/user/logout">LogOut</a>
+    <a  (click)=logOut() href="">LogOut</a>
   </div>
 </div>
 <div class="container-fluid">
 
   <div *ngIf="!googleUser" class="center-align google">
       <h3>Logujte se google nalogom</h3>  
-    <a class="google-btn" (click)=google() href="http://localhost:3000/auth/google">Google+</a>
+    <a class="google-btn" href="http://localhost:3000/auth/google">Google+</a>
   </div>
   <div *ngIf="googleUser" class="admin">
     <h3>Dobrodosao {{googleUser[0].username}}</h3>

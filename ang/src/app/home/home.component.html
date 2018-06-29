@@ -9,7 +9,8 @@
     </div>
 
     <div class="col s8 center-align heading">      
-      <h1 (click)="check($event)">Happy Star Hostel</h1>
+      <h1 (click)="check($event)">Happy Star</h1>
+      <h4>Apartments & Hostel</h4>
     </div>
 
     <div class="col s2 login">
@@ -19,7 +20,7 @@
       <div *ngIf="google">
         <div *ngFor="let user of google" class="google-image">
           <img  src="{{user.thumbnail}}" alt="">
-          <a class="google-btn" (click)=logOut() href="http://localhost:3000/user/logout">LogOut</a>
+          <a class="google-btn" (click)=logOut() href="">LogOut</a>
         </div>
       </div>
     </div>
@@ -83,7 +84,6 @@
         <li class="btn-floating color3 btn-large"><i class="large material-icons ">ac_unit</i></li>
         <li class="btn-floating color2 btn-large"><i class="large material-icons">tv</i></li>
         <li class="btn-floating color1 btn-large"><i class="large material-icons">wifi</i></li>            
-        <li class="btn-floating color2 btn-large"><i class="large material-icons">smoking_rooms</i></li>
         <li class="btn-floating color3 btn-large"><i class="large material-icons">drive_eta</i></li>
         
         <br>
@@ -92,7 +92,7 @@
     
     <p class="about flow-text" id="describe">
       Ponosno Vam predstavljamo naš novi objekat u Nišu Happy Star.
-      Sastoji se od 4 brižmo uređenih soba sa sopstvenim kupatilom. 
+      Sastoji se od 4 brižno uređenih soba sa sopstvenim kupatilom. 
       Mnogo rada i truda je uloženo kako bi našim gostima ponudili najveću udobnost za vreme svojeg boravka.
       Nalazimo se u najlepšem delu grada na Bulevaru Nemanjća. 
       Na 5 minuta udaljeni od parka Svetog Save i u neposrednoj blizini najpoznatijeg spomenika Ćele-Kula.
@@ -140,11 +140,10 @@
         <li class="btn-floating color4 btn-medium"><i class="large color4 material-icons ">ac_unit</i></li>
         <li class="btn-floating color4 btn-medium"><i class="large color4 material-icons">tv</i></li>
         <li class="btn-floating color4 btn-medium"><i class="large color4 material-icons">wifi</i></li>            
-        <li class="btn-floating color4 btn-medium"><i class="large color4 material-icons">smoking_rooms</i></li>
     </div>
     <p class="about flow-text">
       Klimatizovana soba sa francuskim ležajem za 2 osobe. 
-      Soba obuhvata flat-scrren TV sa kablovskim kanalima. 
+      Soba obuhvata flat-screen TV sa kablovskim kanalima. 
       Kompletno opremljenu čajnu kuhinju, sa indukcionom pločom, priborom za jelo i mini barom.
       Gostima je na raspolaganju sopstveno kupatilo sa tušem i fenom za kosu.
       Dodatne pogodnosti obuhvataju papuče i besplatni toaletni pribor.
@@ -179,13 +178,13 @@
         </div>
     </div>
     <div class="center-align" id="accesories">
+        <li class="btn-floating color4 btn-medium"><i class="large color4 material-icons ">ac_unit</i></li>
         <li class="btn-floating color4 btn-medium"><i class="large color4 material-icons">tv</i></li>
         <li class="btn-floating color4 btn-medium"><i class="large color4 material-icons">wifi</i></li>            
-        <li class="btn-floating color4 btn-medium"><i class="large color4 material-icons">smoking_rooms</i></li>
     </div>
     <p class="about flow-text">
         Klimatizovana soba sa francuskim ležajem za 2 osobe. 
-        Soba obuhvata flat-scrren TV sa kablovskim kanalima. 
+        Soba obuhvata flat-screen TV sa kablovskim kanalima. 
         Kompletno opremljenu čajnu kuhinju, sa indukcionom pločom, priborom za jelo i mini barom.
         Gostima je na raspolaganju sopstveno kupatilo sa tušem i fenom za kosu.
         Dodatne pogodnosti obuhvataju papuče i besplatni toaletni pribor.
@@ -206,7 +205,7 @@
 
     <hr>
 
-    <h3 id="room3">Apartman 3</h3>
+    <h3 id="room3">Trokrevetna soba</h3>
     <div class="row">          
       <div class="col s12 m4">
           <img class="materialboxed responsive-img" src="../../assets/images/room 3-1.jpg" alt="">
@@ -219,12 +218,11 @@
         </div>
     </div>
     <div class="center-align" id="accesories">
-        <li class="btn-floating color4 btn-medium"><i class="large color4 material-icons ">ac_unit</i></li>
         <li class="btn-floating color4 btn-medium"><i class="large color4 material-icons">tv</i></li>
         <li class="btn-floating color4 btn-medium"><i class="large color4 material-icons">wifi</i></li>            
     </div>
     <p class="about flow-text">
-      Trokrevetna soba sa zajedničkim kpatilom. Soba obuhvata flat-screen TV sa kablovskim kanalima, frižider, indukcionu ploču i pribor za jelo. 
+      Trokrevetna soba sa zajedničkim kupatilom. Soba obuhvata flat-screen TV sa kablovskim kanalima, frižider, indukcionu ploču i pribor za jelo. 
       Dodatne pogodnosti obuhvataju papuče i besplatni toaletni pribor.
     </p>
     <p *ngIf="action3" class="about flow-text discount">SNIŽENJE {{percent3}}</p>
@@ -242,7 +240,7 @@
 
     <hr>
     
-    <h3 id="room4">Apartman 4</h3>
+    <h3 id="room4">Dvokrevetna soba</h3>
     <div class="row">            
       <div class="col s12 m4">
           <img class="materialboxed responsive-img" src="../../assets/images/room 4-1.jpg" alt="">
@@ -255,14 +253,12 @@
         </div>
     </div>
     <div class="center-align" id="accesories">
-      <li class="btn-floating color4 btn-medium"><i class="large color4 material-icons ">ac_unit</i></li>
       <li class="btn-floating color4 btn-medium"><i class="large color4 material-icons">tv</i></li>
       <li class="btn-floating color4 btn-medium"><i class="large color4 material-icons">wifi</i></li>            
-      <li class="btn-floating color4 btn-medium"><i class="large color4 material-icons">smoking_rooms</i></li>
   </div>
   <p class="about flow-text">
     Dvokrevetna soba sa zajedničkim kupatilom. 
-    Soba on+buhvata flat-screen tv sa kablovskim kanalima, kompletno opremljenu čajnu kuhinju sa indukcionom pločom, priborom za jelo i mini-barom. 
+    Soba onbuhvata flat-screen tv sa kablovskim kanalima, kompletno opremljenu čajnu kuhinju sa indukcionom pločom, priborom za jelo i mini-barom. 
     Dodatne pogodnosti obuhvataju papuče i besplatni toaletni pribor.
 
   </p>
@@ -280,7 +276,7 @@
     </form>
    
     <hr>
-    <contact-form *ngIf="hidden" id="contactForm" [apartman]="apartman" [submited] [schedule]="schedule"></contact-form>
+    <contact-form *ngIf="hidden" id="contactForm" [apartman]="apartman" [sendPrice]="sendPrice" [submited] [schedule]="schedule"></contact-form>
     <br>
     <div id= "map" class="center-align">
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2902.9268848253605!2d21.91966831548683!3d43.315789979134266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4755b093eb973657%3A0x33f76a8822b4044c!2sVranjanska+21%2C+Ni%C5%A1!5e0!3m2!1sen!2srs!4v1518258567801" width="800" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>

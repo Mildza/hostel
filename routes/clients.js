@@ -41,8 +41,8 @@ router.post('/add', (req, res, next) =>{
       port: 587,
       secure: false, // true for 465, false for other ports
       auth: {
-          user: config.user, // generated ethereal user
-          pass: config.pass  // generated ethereal password
+          user: config.user2, // generated ethereal user
+          pass: config.pass2  // generated ethereal password
       },
       tls:{
         rejectUnauthorized:false
@@ -51,7 +51,7 @@ router.post('/add', (req, res, next) =>{
   // setup email data with unicode symbols
   let mailOptions = {
       from: '"Happy Star" <${newclient.email}>', // sender address
-      to: 'mildzan@gmail.com', // sale.gaga@gmail.com
+      to: 'sale.gaga@gmail.com', // sale.gaga@gmail.com
       subject: 'Rezervacija ', // Subject line
       text: 'Hello world?', // plain text body
       html: output // html body
@@ -83,7 +83,7 @@ router.post('/add', (req, res, next) =>{
 
   router.get('/one/:email', function(req, res, next) {
     const email = req.params.email 
-    if(email=='mildzan@gmail.com'){
+    if(email=='sale.gaga@gmail.com'){
       Client.find({}, function (err, client) {
         if(err){
           next()       
@@ -116,7 +116,7 @@ router.post('/add', (req, res, next) =>{
      let room = client[0].room
      let period = client[0].period
      let comentar = client[0].comentar
-     let price = client[0].period
+     let price = client[0].price
 
     let daystart = client[0].period[0].beginDate.day
     let monthstart = client[0].period[0].beginDate.month
@@ -143,8 +143,8 @@ router.post('/add', (req, res, next) =>{
       port: 587,
       secure: false, // true for 465, false for other ports
       auth: {
-          user: config.user, // generated ethereal user
-          pass: config.pass  // generated ethereal password
+          user: config.user2, // generated ethereal user
+          pass: config.pass2  // generated ethereal password
       },
       tls:{
         rejectUnauthorized:false
@@ -153,7 +153,7 @@ router.post('/add', (req, res, next) =>{
   // setup email data with unicode symbols
   let mailOptions2 = {
       from: '"Happy Star" <${email}>', // sender address
-      to: 'mildzan@gmail.com', // sale.gaga@gmail.com
+      to: 'sale.gaga@gmail.com', // sale.gaga@gmail.com
       subject: 'Otkazana Rezervacija ', // Subject line
       text: 'Hello world?', // plain text body
       html: output // html body
@@ -172,8 +172,6 @@ router.post('/add', (req, res, next) =>{
         })
       }     
     }) 
-    
-   
   }) 
   
 module.exports = router
