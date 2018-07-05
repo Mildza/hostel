@@ -1,31 +1,6 @@
+<!-- <app-header></app-header> -->
+
 <div class="home" >
-
-  <header class="row">
-
-    <div class="col s2 reserve valign-wrapper">
-        <div *ngIf="google">
-          <a routerLink="/admin">Rezervacije</a>
-        </div>
-    </div>
-
-    <div class="col s8 center-align heading">      
-      <h1 (click)="check($event)">Happy Star</h1>
-      <h4>Apartments & Hostel</h4>
-    </div>
-
-    <div class="col s2 login">
-      <div *ngIf="!google" class="login2" >
-        <a routerLink="/login">Login</a>
-      </div>
-      <div *ngIf="google">
-        <div *ngFor="let user of google" class="google-image">
-          <img  src="{{user.thumbnail}}" alt="">
-          <a class="google-btn" (click)=logOut() href="">LogOut</a>
-        </div>
-      </div>
-    </div>
-
-  </header>
 
 <div class="container">
   <div class="center-align">
@@ -65,7 +40,7 @@
         <div class="card">
             <div class="card-image">
               <img class="responsive-img" src="../../assets/images/room 3.jpg">
-              <span class="card-title">Apartman 3</span>
+              <span class="card-title">Trokrevetna soba</span>
             </div>                  
         </div>
       </a>            
@@ -73,7 +48,7 @@
         <div class="card">
             <div class="card-image">
               <img class="responsive-img" src="../../assets/images/room 4.jpg">
-              <span class="card-title">Apartman 4</span>
+              <span class="card-title">Dvokrevetna soba</span>
             </div>                  
         </div>
       </a>
@@ -277,14 +252,10 @@
    
     <hr>
     <contact-form *ngIf="hidden" id="contactForm" [apartman]="apartman" [sendPrice]="sendPrice" [submited] [schedule]="schedule"></contact-form>
-    <br>
-    <div id= "map" class="center-align">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2902.9268848253605!2d21.91966831548683!3d43.315789979134266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4755b093eb973657%3A0x33f76a8822b4044c!2sVranjanska+21%2C+Ni%C5%A1!5e0!3m2!1sen!2srs!4v1518258567801" width="800" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
-    </div>
     <div class="fixed-action-btn" id="menu">
     <a href="#" class="btn-floating red btn-large"><i class="large material-icons">arrow_upward</i></a>
     <ul>
-      <a href="#map"><li class="btn-floating orange btn-large" onClick="mapClick()"><i class="large material-icons">near_me</i></li></a>
+      <a routerLink="/about"><li class="btn-floating orange btn-large"><i class="large material-icons">near_me</i></li></a>
       <a href="mailto:sale.gaga@gmail.com?Subject=Happy%20Star"><li class="btn-floating purple btn-large"><i class="large material-icons">mail</i></li></a> 
     </ul>
   </div>

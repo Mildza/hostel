@@ -1,32 +1,16 @@
-* {
-    box-sizing: border-box;
-}
+* {box-sizing: border-box;}
 
-
-/* #8d6e63 */
 body {
     background-color: #616161 ;
     color: white;
     /* font-family: "Roboto", Arial, Times, serif ; */
 }
 
-i {
-  color:#FFF
-}
-
-a:link {
-    color: #FFF;
-}
-
-a:visited {
-    color: #FFF;
-}
-a:hover {
-    color: #FFF;
-}
-a:active {
-    color: #FFF;
-}
+i {color:#FFF}
+a:link {color: #FFF;}
+a:visited {color: #FFF;}
+a:hover {color: #FFF;}
+a:active {color: #FFF;}
 
 .spinner:before {
     content: "";
@@ -49,20 +33,4 @@ a:active {
     to {
       transform: rotate(360deg);
     }
-  }
-
-.google-image {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-  }
-  
-  .google-image img {
-    width:60px;
-    height:60px; 
-    border-radius: 10px;   
-  }
-  .google-image a {
-    display:block;
-    text-align: center;
   }

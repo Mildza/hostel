@@ -67,14 +67,7 @@ footer {
 /* ************ */
 
 
-#map {
-  display:none;
-}
 
-#map iframe {
-  border-radius: 20px;
-  min-width: 300px;
-  }
 
 .btn {
   margin-left:20px;
@@ -182,9 +175,6 @@ span {
 
   .heading {margin-top:15px;}
 
-  #map iframe {        
-    width: 100%;
-  }
 
   .flex {
     display: flex;
@@ -242,7 +232,6 @@ span {
     max-width:300px !important;
     max-height:300px !important;
   }
-
 
   .heading {margin-top:10px;}
   .row .col {

@@ -21,12 +21,9 @@ passport.use(
     clientSecret:config.google.clientSecret
     }, (accessToken, refreshToken, profile, done) => {
         // check if user exist
-       
       User.findOne({googleId: profile.id})
       .then ((currentUser) => {
-        if(currentUser){
-              //  console.log('user is: ' + currentUser)
-            done(null, currentUser)
+        if(currentUser){ done(null, currentUser)
           } else {
               new User({
               email: profile.emails[0].value,
@@ -39,3 +36,4 @@ passport.use(
       })  
   })
 )
+.user

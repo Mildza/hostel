@@ -1,0 +1,43 @@
+<header>
+  <div class="row">
+  <div class="col s2 reserve valign-wrapper">
+      <a routerLink="/" class="right"><i class="fas fa-home fa-3x"></i></a>
+  </div>
+
+  <div class="col s8 center-align heading">      
+      <h1 (click)="check($event)">Happy Star</h1>
+      <h4>Apartments & Hostel</h4>
+  </div>
+  <div class="col s2 login">
+      <div *ngIf="!google" class="login2" >
+        <a routerLink="/login">Login</a>
+      </div>
+      <div *ngIf="google">
+        <div *ngFor="let user of google" class="google-image">
+          <img  src="{{user.thumbnail}}" alt="">
+          <a class="google-btn" (click)=logOut() href="">LogOut</a>
+        </div>
+      </div>
+    </div>
+  </div>
+    <nav class="left">
+        <div class="nav-wrapper">
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="left hide-on-med-and-down">          
+            <li *ngIf="google"><a routerLink="/admin">Rezervacije</a></li>
+            <li><a routerLink="/about">Kontakt</a></li> 
+          </ul>
+        </div>
+      </nav>
+  
+      <ul class="sidenav" id="mobile-demo">
+          <li *ngIf="google"><a routerLink="/admin">Rezervacije</a></li>
+          <li><a routerLink="/about">Kontakt</a></li>
+        </ul>
+  </header>
+
+  
+  
+
+ 
+

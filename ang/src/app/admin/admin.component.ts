@@ -51,7 +51,7 @@ export class AdminComponent implements OnInit {
     // .subscribe(data => console.log(data));
   }  
   check(){ 
-    if(this.email === "mildzan@gmail.com") {
+    if(this.email === "sale.gaga@gmail.com") {
       return true
     } else {
       return false

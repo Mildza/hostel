@@ -1,22 +1,10 @@
-
 <div class="container">
 <flash-messages></flash-messages>
-<!-- <p>{{user}}</p> -->
-<!-- <img src={{user.thumbnail}} alt=""> -->
-<div *ngIf="google" class="google">
-  <div *ngFor="let user of google" class="google-image">
-    <img  src="{{user.thumbnail}}" alt="">
-    <a class="google-btn" (click)=logOut() href="">LogOut</a>
-  </div>
-</div>
-<div class="home">
-<a routerLink="/" class="right"><i class="fas fa-home fa-3x"></i></a>
-</div>
 <h3 class="center-align">Pregled rezervacija</h3>
   <table class="centered">
       <thead>
         <tr>
-            <th>Apartman</th>
+            <th>Soba</th>
             <th>Period</th>
             <th>Cena</th>
             <th>Ime</th>
@@ -26,7 +14,7 @@
         </tr>
       </thead>
 
-      <tbody >
+      <tbody>
         <tr *ngFor="let client of result">
           <td>{{client.room}}</td>
           <td>{{client.period[0].beginDate.day}}/{{client.period[0].beginDate.month}}/{{client.period[0].beginDate.year}}
@@ -43,16 +31,13 @@
       </tbody>
     </table>
 
-    <div *ngIf="check()" class=changeForm>
+  <div *ngIf="check()" class=changeForm>
       <div *ngFor="let rooms of room">
-      <p>Promeni cenu ili popust za sobu br {{rooms.number}}</p>
-      <input type="number"  [(ngModel)]="rooms.price" name="newprice" #newprice="ngModel">
-      <input type="number"  [(ngModel)]="rooms.discount" name="newdiscount" #newprice="ngModel" max="1" step="0.1" min="0.5">
-
-      <button class="btn btn-primary center-block green" (click)="changePrice(rooms.number, rooms.price, rooms.discount)">Promeni</button>  
-      
+        <p>Promeni cenu ili popust za sobu br {{rooms.number}}</p>
+        <input type="number"  [(ngModel)]="rooms.price" name="newprice" #newprice="ngModel">
+        <input type="number"  [(ngModel)]="rooms.discount" name="newdiscount" #newprice="ngModel" max="1" step="0.1" min="0.5">
+        <button class="btn btn-primary center-block green" (click)="changePrice(rooms.number, rooms.price, rooms.discount)">Promeni</button>  
     </div>
-    </div>
-          
+  </div>          
 
 </div>

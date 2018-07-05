@@ -18,9 +18,12 @@ import { LandingComponent } from './landing/landing.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './login/login.component';
+import { AboutComponent } from './about/about.component';
+import { HeaderComponent } from './header/header.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
+  {path: 'about', component: AboutComponent},
   {path: 'admin/:id', component: AdminComponent, canActivate:[AuthGuard]},
   {path: 'admin', component: AdminComponent, canActivate:[AuthGuard]},
   {path: 'google/redirect', component: AdminComponent, canActivate:[AuthGuard]},  
@@ -39,7 +42,9 @@ const appRoutes: Routes = [
     LandingComponent,
     ContactFormComponent,
     AdminComponent,
-    LoginComponent
+    LoginComponent,
+    AboutComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

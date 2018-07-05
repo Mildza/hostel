@@ -311,13 +311,6 @@ export class HomeComponent implements OnInit {
     
     this.hidden = true    
   }
-
-  public check(event) {
-    console.log(event.altKey)
-          if(event.ctrlKey == true){
-        this.router.navigate(['/admin'])
-      }
-    }
   
     logOut(){
       this.authService.logOut()
