@@ -41,9 +41,16 @@ export class LoginComponent implements OnInit {
     const email = this.route.snapshot.params['id']
     if(email){
       this.authService.storeUserData(email)
-      // const sudouser = email;
-      // this.userService.sudouser.next(sudouser);
-      this.authService.getGoogleUser(email)
+
+      const sudouser = email;
+      this.userService.sudouser.next(sudouser);
+
+      this.userService.sudouser.subscribe(sudouser => {
+        this.sudouser = sudouser
+        console.log("login: " + this.sudouser)
+      })
+      
+      this.authService.getGoogleUser(sudouser || email)
       .subscribe(googleUser => {
         this.googleUser = googleUser
       })
