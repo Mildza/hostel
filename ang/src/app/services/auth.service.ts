@@ -81,6 +81,21 @@ export class AuthService {
   }
 
 
+  getCounter(){ 
+    let headers = new Headers()    
+    headers.append('Content-Type', 'application/json')
+    return this.http.get('http://localhost:3000/counter/get', {headers: headers})
+      .map(res => res.json())
+  }
+
+  riseCounter(old){
+    document.cookie = "visitor=customer; max-age=60*60*12";
+    let headers = new Headers()    
+    headers.append('Content-Type', 'application/json')
+    return this.http.put('http://localhost:3000/counter/rise/' + old, {headers: headers})
+      .map(res => res.json())
+  }
+
   storeUserData(gookie){
     localStorage.setItem('gookie', gookie)
     this.email = gookie

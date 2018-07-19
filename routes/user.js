@@ -1,8 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const nodemailer = require('nodemailer');
 var User = require('../models/users');
-const config = require('../config/database')
+
 
 router.get('/find/:email', function(req, res, next) {
   const email = req.params.email

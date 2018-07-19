@@ -14,7 +14,6 @@ import { AuthGuard } from './guards/auth.guards';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { LandingComponent } from './landing/landing.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './login/login.component';
@@ -39,7 +38,6 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
-    LandingComponent,
     ContactFormComponent,
     AdminComponent,
     LoginComponent,

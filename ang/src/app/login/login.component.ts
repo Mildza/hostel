@@ -47,7 +47,6 @@ export class LoginComponent implements OnInit {
 
       this.userService.sudouser.subscribe(sudouser => {
         this.sudouser = sudouser
-        console.log("login: " + this.sudouser)
       })
       
       this.authService.getGoogleUser(sudouser || email)

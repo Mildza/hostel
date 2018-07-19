@@ -28,9 +28,7 @@ export class HeaderComponent implements OnInit {
 
     const gookie = this.authService.getGookie()
     this.userService.sudouser.subscribe(sudouser => {
-      this.sudouser = sudouser
-      console.log("header: " + this.sudouser)
-      
+      this.sudouser = sudouser      
     if(this.sudouser || gookie){      
         this.authService.getGoogleUser(this.sudouser || gookie)
       .subscribe(google => this.google = google) 

@@ -1,8 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import {Router, ActivatedRoute} from '@angular/router'
+// import {Router, ActivatedRoute} from '@angular/router'
 import {IMyDrpOptions, IMyDateRangeModel} from 'mydaterangepicker';
 import {AuthService} from '../services/auth.service'
-import {UserService} from '../services/user.service'
+// import {UserService} from '../services/user.service'
 
 import * as moment from 'moment';
 import * as $ from 'jquery';
@@ -89,10 +89,11 @@ export class HomeComponent implements OnInit {
 
   sendPrice:number
 
+
   constructor(
     private authService: AuthService,
-    private userService: UserService,
-    private router:Router
+    // private userService: UserService,
+    // private router:Router
   ) {const gookie = this.authService.getGookie()
     
     if(gookie){
@@ -101,8 +102,32 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  counterSource:string
+  counter:any
+  res: any
+  res2: any
+
   ngOnInit() {
     
+    this.authService.getCounter()
+    .subscribe(result => {
+      this.res = result
+      
+      this.counterSource = this.res[0].visitors      
+      this.counter = this.counterSource.toString().split('');
+
+      if (document.cookie.split(';').filter((item) => item.includes('visitor=')).length) {
+        console.log('The cookie "visitor" exists')
+      } else {
+        this.authService.riseCounter(this.counterSource)
+        .subscribe(result => {
+          this.res2 = result
+          // console.log(result)
+        } )
+        
+      } 
+    })  
+
     this.authService.getPrice()
     .subscribe(room => {
       this.room = room

@@ -7,6 +7,8 @@ node_modules/
 
 config/database.js
 
+_netrc
+
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json

@@ -4,7 +4,6 @@ const nodemailer = require('nodemailer');
 var Client = require('../models/client');
 const config = require('../config/database')
 
-
 router.post('/add', (req, res, next) =>{
     const newclient = new Client ({
       firstname: req.body.firstname,

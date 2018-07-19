@@ -13,6 +13,7 @@ const google = require('./routes/user')
 const config = require('./config/database')
 const user = require('./models/users')
 const price = require('./routes/price')
+const counter = require('./routes/counter')
 
 mongoose.connect(config.database)
 
@@ -41,6 +42,7 @@ app.use('/clients', clients)
 app.use('/auth', auth)
 app.use('/user', google)
 app.use('/price', price)
+app.use('/counter', counter)
 
 const port = process.env.PORT || 3000
 

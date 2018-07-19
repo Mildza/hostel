@@ -11,7 +11,7 @@
 
   <div *ngIf="!googleUser" class="center-align google">
       <h3>Logujte se google nalogom</h3>  
-    <a class="google-btn" href="http://localhost:3000/auth/google">Google+</a>
+    <a class="google-btn" href="auth/google">Google+</a>
   </div>
   <div *ngIf="googleUser" class="admin">
     <h3>Dobrodosao {{googleUser[0].username}}</h3>
