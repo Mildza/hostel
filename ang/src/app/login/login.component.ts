@@ -5,10 +5,6 @@ import {UserService} from '../services/user.service'
 import {FlashMessagesService} from 'angular2-flash-messages'
 import { Http } from '@angular/http';
 
-// import {StorageService} from '../../services/storage.service'
-// import {UserService} from '../../services/user.service'
-// import {AuthService} from '../../services/auth.service'
-
 
 @Component({
   selector: 'app-login',
@@ -39,6 +35,7 @@ export class LoginComponent implements OnInit {
    
   ngOnInit() { 
     const email = this.route.snapshot.params['id']
+    console.log({email})
     if(email){
       this.authService.storeUserData(email)
 
@@ -57,8 +54,6 @@ export class LoginComponent implements OnInit {
       // this.authService.getAll()
       // .subscribe(result => this.result = result)
       // // this.flashMessage.show('We are in about component!', { cssClass: 'green', timeout: 3000 });      
-    } else {
-
     } 
   }
 
